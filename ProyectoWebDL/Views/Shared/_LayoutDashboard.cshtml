@@ -33,11 +33,13 @@
                         <span class="fs-4 d-none d-sm-inline">Bienvenido</span>
                     </a>
                     <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link align-middle px-0">
-                                <i class="fs-4 bi-Inicio"></i> <span class="ms-1 d-none d-sm-inline text-black fs-5">Inicio</span>
+                   
+                        <li>
+                            <a asp-controller="Home" asp-action="Index" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-Info"></i> <span class="ms-1 d-none d-sm-inline text-black fs-5">Inicio</span>
                             </a>
                         </li>
+                        <li>
                         <li>
                             <a asp-controller="Libro" asp-action="Index" class="nav-link px-0 align-middle">
                                 <i class="fs-4 bi-Info"></i> <span class="ms-1 d-none d-sm-inline text-black fs-5">Libros</span>

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoWebDL.Models;
+using ProyectoWebDL.Services.IServices;
 using System.Diagnostics;
 
 namespace ProyectoWebDL.Controllers
@@ -7,8 +8,10 @@ namespace ProyectoWebDL.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        public HomeController(ILogger<HomeController> logger)
+        private readonly IArticuloServices _articuloServices;
+        public HomeController(ILogger<HomeController> logger, IArticuloServices articuloServices)
         {
+            _articuloServices= articuloServices;
             _logger = logger;
         }
 
@@ -17,9 +20,10 @@ namespace ProyectoWebDL.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public async Task <IActionResult> Privacy()
         {
-            return View();
+            var response = await _articuloServices.GetArticulos();
+            return View(response);
         }
         public IActionResult Contacto()
         {
