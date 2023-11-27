@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using ProyectoWebDL.Context;
 using ProyectoWebDL.Models;
 using ProyectoWebDL.Services.IServices;
 using System.Diagnostics;
@@ -9,10 +11,12 @@ namespace ProyectoWebDL.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IArticuloServices _articuloServices;
-        public HomeController(ILogger<HomeController> logger, IArticuloServices articuloServices)
+        private readonly ApplicationDbContext _context;
+        public HomeController(ILogger<HomeController> logger, IArticuloServices articuloServices, ApplicationDbContext context)
         {
             _articuloServices= articuloServices;
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -28,6 +32,35 @@ namespace ProyectoWebDL.Controllers
         public IActionResult Contacto()
         {
             return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public JsonResult LoginUser(string user, string password)
+        {
+
+            var response = _context.Usuarios.Include(z => z.Roles)
+                                                    .FirstOrDefault(x => x.UserName == user && x.Password == password);
+
+
+            if (response != null)
+            {
+                if (response.Roles.Nombre == "admin")
+                {
+                    return Json(new { Success = true, admin = true });
+                }
+                return Json(new { Success = true, admin = false });
+            }
+            else
+            {
+                return Json(new { Success = false, admin = false });
+            }
+
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

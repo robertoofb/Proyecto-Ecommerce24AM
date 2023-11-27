@@ -22,7 +22,7 @@ namespace ProyectoWebDL.Services.Service
             try
             {
 
-                return await _context.Usuarios.ToListAsync();
+                return await _context.Usuarios.Include(x=>x.Roles).ToListAsync();
 
             }
             catch (Exception ex)

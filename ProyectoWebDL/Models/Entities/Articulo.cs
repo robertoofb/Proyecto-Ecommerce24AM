@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProyectoWebDL.Models.Entities
 {
@@ -13,5 +14,10 @@ namespace ProyectoWebDL.Models.Entities
         public string Descripcion { get; set; }
         [Required]
         public double Precio { get; set; }
+
+        [NotMapped]
+        [Display(Name = "Imagen")]
+        public IFormFile Img { get; set; }
+        public string UrlImagenPath { get; set; }
     }
 }

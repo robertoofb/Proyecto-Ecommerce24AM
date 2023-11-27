@@ -34,13 +34,31 @@ namespace ProyectoWebDL.Controllers
         }
 
         [HttpGet]
+        public async Task<IActionResult> IndexCopia()
+        {
+            try
+            {
+                //Uso de la lista de los articulos para que se muestre al abrir la vista
+
+                return View(await _articuloServices.GetArticulos());
+
+                /*var response = await _articuloServices.GetArticulos();
+                return View(response);*/
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Succedio un error" + ex.Message);
+            }
+        }
+
+        [HttpGet]
         public IActionResult Crear()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Crear(Articulo request)
+        public IActionResult Crear([FromForm] Articulo request)
         {
             try
             {

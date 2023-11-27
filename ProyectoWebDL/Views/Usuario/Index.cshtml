@@ -54,7 +54,7 @@
                                         <td> @Html.DisplayFor(x => Item.Apellido)</td>
                                         <td> @Html.DisplayFor(x => Item.UserName) </td>
                                         <td> @Html.DisplayFor(x => Item.Password) </td>
-                                        <td> @Html.DisplayFor(x => Item.FkRol) </td>
+                                        <td> @Html.DisplayFor(x => Item.Roles.Nombre) </td>
                                         <td>
                                             <a class="btn btn-primary" asp-action="Editar" asp-route-id=@Item.PKUsuario><i class="fa-regular fa-pen-to-square"></i> Editar</a>
                                             <a class="btn btn-danger eliminar-usuario" data-id="@Item.PKUsuario"><i class="fa-solid fa-trash"></i> Eliminar</a>
