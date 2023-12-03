@@ -12,7 +12,7 @@
 
             <div class="card-body">
 
-                <form asp-action="Editar" method="post">
+                <form asp-action="Editar" method="post" enctype="multipart/form-data">
 
 
                     @*Id del articulo oculto*@
@@ -26,18 +26,33 @@
                     </div>
 
                     <div class="form-group">
-                        <label asp-for="Apellido" class="control-label"></label>
-                        <input asp-for="Apellido" class="form-control" placeholder="Ingrese su apellido" required />
+                        <label asp-for="Apellido1" class="control-label"></label>
+                        <input asp-for="Apellido1" class="form-control" placeholder="Ingrese su apellido paterno" required />
                     </div>
 
                     <div class="form-group">
-                        <label asp-for="UserName" class="control-label"></label>
-                        <input asp-for="UserName" class="form-control" placeholder="Ingrese su nombre de usuario" required />
+                        <label asp-for="Apellido2" class="control-label"></label>
+                        <input asp-for="Apellido2" class="form-control" placeholder="Ingrese su apellido materno" required />
                     </div>
 
                     <div class="form-group">
-                        <label asp-for="Password" class="control-label"></label>
-                        <input asp-for="Password" class="form-control" placeholder="Ingrese su contraseña" required />
+                        <label asp-for="NombreUsuario" class="control-label"></label>
+                        <input asp-for="NombreUsuario" class="form-control" placeholder="Ingrese su nombre de usuario" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Correo" class="control-label"></label>
+                        <input asp-for="Correo" class="form-control" placeholder="Ingrese su correo" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Contraseña" class="control-label"></label>
+                        <input asp-for="Contraseña" class="form-control" placeholder="Ingrese su contraseña" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Img" class="control-label"></label>
+                        <input asp-for="Img" class="form-control" type="file" name="Img" accept="image/*" required />
                     </div>
 
                     <div class="form-group">

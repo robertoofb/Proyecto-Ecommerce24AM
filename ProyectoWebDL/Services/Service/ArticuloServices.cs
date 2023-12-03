@@ -24,7 +24,7 @@ namespace ProyectoWebDL.Services.Service
             try
             {
 
-                return await _context.Articulos.ToListAsync();
+                return await _context.Articulos.Include(x => x.Categorias).ToListAsync();
 
             }
             catch (Exception ex)
@@ -54,20 +54,24 @@ namespace ProyectoWebDL.Services.Service
             try
             {
                 var urlImagen = i.Img.FileName;
-                i.UrlImagenPath = @"Img/articulos/"+ urlImagen;
+                i.UrlImagenPath = @"Img/articulos/" + urlImagen;
+                var urlPdf = i.Pdf.FileName;
+                i.UrlPdfPath = @"Pdf/articulos/" + urlPdf;
 
                 Articulo request = new Articulo()
                 {
                     Nombre = i.Nombre,
                     Descripcion = i.Descripcion,
-                    Precio = i.Precio,
-                    UrlImagenPath= i.UrlImagenPath,
+                    Autor = i.Autor,
+                    FkCategoria = i.FkCategoria,
+                    UrlImagenPath = i.UrlImagenPath,
+                    UrlPdfPath = i.UrlPdfPath,
                 };
-
                 SubirImg(urlImagen);
+                SubirImg(urlPdf);
 
                 var result = await _context.Articulos.AddAsync(request);
-                 _context.SaveChanges();
+                _context.SaveChanges();
 
                 return request;
             }
@@ -83,10 +87,19 @@ namespace ProyectoWebDL.Services.Service
             {
 
                 Articulo articulo = _context.Articulos.Find(i.PkArticulo);
+                var urlImagen = i.Img.FileName;
+                i.UrlImagenPath = @"Img/articulos/" + urlImagen;
+                var urlPdf = i.Pdf.FileName;
+                i.UrlPdfPath = @"Pdf/articulos/" + urlPdf;
 
                 articulo.Nombre = i.Nombre;
                 articulo.Descripcion = i.Descripcion;
-                articulo.Precio = i.Precio;
+                articulo.Autor = i.Autor;
+                articulo.FkCategoria = i.FkCategoria;
+                articulo.UrlImagenPath = i.UrlImagenPath;
+                articulo.UrlPdfPath = i.UrlPdfPath;
+                SubirImg(urlImagen);
+                SubirImg(urlPdf);
 
                 _context.Entry(articulo).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
@@ -105,7 +118,7 @@ namespace ProyectoWebDL.Services.Service
             {
                 Articulo articulo = _context.Articulos.Find(id);
 
-                if(articulo != null)
+                if (articulo != null)
                 {
                     var res = _context.Articulos.Remove(articulo);
                     _context.SaveChanges();

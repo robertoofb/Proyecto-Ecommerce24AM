@@ -31,10 +31,13 @@
                         <table class="table table-bordered" id="tblArticulo" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th> @Html.DisplayNameFor(x => x.PkArticulo)</th>
+                                    <th> #</th>
                                     <th> @Html.DisplayNameFor(x => x.Nombre)</th>
                                     <th> @Html.DisplayNameFor(x => x.Descripcion )</th>
-                                    <th> @Html.DisplayNameFor(x => x.Precio )</th>
+                                    <th> @Html.DisplayNameFor(x => x.Autor )</th>
+                                    <th>Categoria</th>
+                                    <th>Imagen</th>
+                                    <th>PDF</th>
 
                                     <th> Acciones</th>
                                 </tr>
@@ -50,7 +53,10 @@
                                         <td> <span>@(i++)</span></td>
                                         <td> @Html.DisplayFor(x => Item.Nombre )</td>
                                         <td> @Html.DisplayFor(x => Item.Descripcion )</td>
-                                        <td> @Html.DisplayFor(x => Item.Precio) </td>
+                                        <td> @Html.DisplayFor(x => Item.Autor) </td>
+                                        <td> @Html.DisplayFor(x => Item.Categorias.Nombre) </td>
+                                        <td> @Html.DisplayFor(x => Item.UrlImagenPath) </td>
+                                        <td> @Html.DisplayFor(x => Item.UrlPdfPath) </td>
                                         <td>
                                             <a class="btn btn-primary" asp-action="Editar" asp-route-id=@Item.PkArticulo><i class="fa-regular fa-pen-to-square"></i> Editar</a>
                                             <a class="btn btn-danger eliminar-articulo" data-id="@Item.PkArticulo"><i class="fa-solid fa-trash"></i> Eliminar</a>

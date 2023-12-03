@@ -8,6 +8,7 @@ namespace ProyectoWebDL.Services.IServices
         public Task<Usuario> GetByIdUsuario(int id);
 
         public Task<Usuario> CrearUsuario(Usuario i);
+        public Task<Usuario> RegistrarUsuario(Usuario i);
         public Task<Usuario> EditarUsuario(Usuario i);
         public bool EliminarUsuario(int id);
     }

@@ -12,7 +12,7 @@
 
             <div class="card-body">
 
-                <form asp-action="Editar" method="post">
+                <form asp-action="Editar" method="post" enctype="multipart/form-data">
 
 
                     @*Id del articulo oculto*@
@@ -31,9 +31,26 @@
 
                     </div>
                     <div class="form-group">
-                        <label asp-for="Precio" class="control-label"></label>
-                        <input asp-for="Precio" class="form-control" type="number" placeholder="Ingresa el precio" required />
+                        <label asp-for="Autor" class="control-label"></label>
+                        <input asp-for="Autor" class="form-control" placeholder="Ingresa el o los autores" required />
 
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label"> Categoria</label>
+                        <select asp-for="FkCategoria" asp-items="ViewBag.Categorias" class="select2-placeholder-multiple form-control">
+                            <option value="">-- Selecciona --</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Img" class="control-label"></label>
+                        <input asp-for="Img" class="form-control" type="file" name="Img" accept="image/*" required />
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="Pdf" class="control-label"></label>
+                        <input asp-for="Pdf" class="form-control" type="file" name="Pdf" accept="pdf/*" required />
                     </div>
 
                     <div class="form-group mt-3">

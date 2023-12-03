@@ -5,22 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ProyectoWebDL</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/site2.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ProyectoWebDL.styles.css" asp-append-version="true" />
     @*Iconos*@
     <script src="https://kit.fontawesome.com/3cdd98c6f1.js" crossorigin="anonymous"></script>
     
 </head>
-<body>
+<body style="background-color: #0C2430">
 
     <header>
-        <nav class="navbar" style="background-color: #0b1d2b;">
+        <nav class="navbar" style="background-color:transparent">
             <div class="container-fluid">
-                <a class="navbar-brand">Navbar</a>
-                <div class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-danger" type="submit">Salir</button>
-                </div>
+                <a class="navbar-brand"></a>
             </div>
         </nav>
     </header>
@@ -41,11 +37,6 @@
                         </li>
                         <li>
                         <li>
-                            <a asp-controller="Libro" asp-action="Index" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-Info"></i> <span class="ms-1 d-none d-sm-inline text-black fs-5">Libros</span>
-                            </a>
-                        </li>
-                        <li>
                             <a asp-controller="Usuario" asp-action="Index" class="nav-link px-0 align-middle ">
                                 <i class="fs-4 bi-Contactos"></i> <span class="ms-1 d-none d-sm-inline text-black fs-5">Usuarios</span>
                             </a>
@@ -61,22 +52,18 @@
                                 <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline text-black fs-5">Articulos</span>
                             </a>
                         </li>
+                        <li>
+                            <a asp-controller="Categoria" asp-action="Index" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline text-black fs-5">Categorias</span>
+                            </a>
+                        </li>
                     </ul>
                     <hr>
                     <div class="dropdown pb-4">
                         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                            <img src="https://www.gamecored.com/wp-content/uploads/2022/08/finn-el-humano.jpg" alt="hugenerd" width="57" height="45" class="rounded-circle">
-                            <span class="d-none d-sm-inline mx-1 fs-5">Fierro</span>
+                            <img src="~/css/energia-atomica.png" alt="hugenerd" width="57" height="45" class="rounded-circle">
+                            <span class="d-none d-sm-inline mx-1 fs-5">ScireHub</span>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-Black text-small shadow">
-                            <li><a class="dropdown-item" href="#">Proyecto Nuevo...</a></li>
-                            <li><a class="dropdown-item" href="#">Opciones</a></li>
-                            <li><a class="dropdown-item" href="#">Perfil</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Salir</a></li>
-                        </ul>
                     </div>
                 </div>
             </div>

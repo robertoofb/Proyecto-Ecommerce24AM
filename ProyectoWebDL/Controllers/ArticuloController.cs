@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using ProyectoWebDL.Context;
 using ProyectoWebDL.Models.Entities;
 using ProyectoWebDL.Services.IServices;
 
@@ -9,9 +12,13 @@ namespace ProyectoWebDL.Controllers
     {
         //Constructor para el uso de base de datos
         private readonly IArticuloServices _articuloServices;
-        public ArticuloController(IArticuloServices articuloServices)
+        private readonly ApplicationDbContext _context;
+
+        public ArticuloController(IArticuloServices articuloServices, ApplicationDbContext context)
         {
             _articuloServices = articuloServices;
+            _context = context;
+
         }
 
         [HttpGet]
@@ -54,6 +61,11 @@ namespace ProyectoWebDL.Controllers
         [HttpGet]
         public IActionResult Crear()
         {
+            ViewBag.Categorias = _context.Categorias.Select(p => new SelectListItem()
+            {
+                Text = p.Nombre,
+                Value = p.PkCategoria.ToString()
+            });
             return View();
         }
 
@@ -69,7 +81,7 @@ namespace ProyectoWebDL.Controllers
             catch (Exception ex)
             {
 
-                throw new Exception("Error"+ ex.Message);
+                throw new Exception("Error" + ex.Message);
             }
         }
 
@@ -77,11 +89,17 @@ namespace ProyectoWebDL.Controllers
         public async Task<IActionResult> Editar(int id)
         {
             var response = await _articuloServices.GetByIdArticulo(id);
+
+            ViewBag.Categorias = _context.Categorias.Select(p => new SelectListItem()
+            {
+                Text = p.Nombre,
+                Value = p.PkCategoria.ToString()
+            });
             return View(response);
         }
 
         [HttpPost]
-        public IActionResult Editar(Articulo request)
+        public IActionResult Editar([FromForm] Articulo request)
         {
             var response = _articuloServices.EditarArticulo(request);
             return RedirectToAction(nameof(Index));
@@ -91,7 +109,7 @@ namespace ProyectoWebDL.Controllers
         public IActionResult Eliminar(int id)
         {
             bool result = _articuloServices.EliminarArticulo(id);
-            if(result = true)
+            if (result = true)
             {
                 return Json(new { succes = true });
             }

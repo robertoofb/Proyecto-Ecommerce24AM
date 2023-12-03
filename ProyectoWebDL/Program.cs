@@ -16,7 +16,7 @@ builder.Configuration.GetConnectionString("DefaultConnection")
 //Inyeccióm de dependencias
 
 builder.Services.AddTransient<IArticuloServices, ArticuloServices>();
-builder.Services.AddTransient<ILibroServices, LibroServices>();
+builder.Services.AddTransient<ICategoriaServices, CategoriaServices>();
 builder.Services.AddTransient<IUsuarioServices, UsuarioServices>();
 builder.Services.AddTransient<IRolServices, RolServices>();
 builder.Services.AddHttpContextAccessor();
@@ -42,8 +42,5 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Libro}/{action=Index}/{id?}");
 
 app.Run();

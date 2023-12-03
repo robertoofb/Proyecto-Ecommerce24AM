@@ -5,23 +5,22 @@ using ProyectoWebDL.Services.IServices;
 
 namespace ProyectoWebDL.Services.Service
 {
-    public class LibroServices: ILibroServices
+    public class CategoriaServices : ICategoriaServices
     {
         private readonly ApplicationDbContext _context;
 
         //Constructor para usar las tablas de base de datos
-        public LibroServices(ApplicationDbContext context)
+        public CategoriaServices(ApplicationDbContext context)
         {
             _context = context;
-
         }
 
-        public async Task<List<Libro>> GetLibros()
+        public async Task<List<Categoria>> GetCategoria()
         {
             try
             {
 
-                return await _context.Libros.ToListAsync();
+                return await _context.Categorias.ToListAsync();
 
             }
             catch (Exception ex)
@@ -31,13 +30,12 @@ namespace ProyectoWebDL.Services.Service
 
         }
 
-        public async Task<Libro> GetByIdLibro(int id)
+        public async Task<Categoria> GetByIdCategoria(int id)
         {
             try
             {
-                //Articulo response = await _context.Articulos.FindAsync(id);
 
-                Libro response = await _context.Libros.FirstOrDefaultAsync(x => x.PkLibro == id);
+                Categoria response = await _context.Categorias.FirstOrDefaultAsync(x => x.PkCategoria == id);
                 return response;
             }
             catch (Exception ex)
@@ -46,45 +44,41 @@ namespace ProyectoWebDL.Services.Service
             }
 
         }
-
-        public async Task<Libro> CrearLibro(Libro i)
+        public async Task<Categoria> CrearCategoria(Categoria i)
         {
             try
             {
-                Libro request = new Libro()
+                Categoria request = new Categoria()
                 {
-                    Titulo = i.Titulo,
-                    Descripcion = i.Descripcion,
-                    Images = i.Images,
-                    Activo = true
+                    PkCategoria = i.PkCategoria,
+                    Nombre = i.Nombre,
                 };
-                //Con esto se manda a la bd de forma asincrona
-                var result = await _context.Libros.AddAsync(request);
+
+                var result = await _context.Categorias.AddAsync(request);
                 _context.SaveChanges();
 
                 return request;
             }
             catch (Exception ex)
             {
-                throw new Exception("Surgió un error" + ex.Message);
+                throw new Exception("Surgio un error" + ex.Message);
             }
         }
 
-        public async Task<Libro> EditarLibro(Libro i)
+        public async Task<Categoria> EditarCategoria(Categoria i)
         {
             try
             {
 
-                Libro libro = _context.Libros.Find(i.PkLibro);
+                Categoria categoria = _context.Categorias.Find(i.PkCategoria);
 
-                libro.Titulo = i.Titulo;
-                libro.Descripcion = i.Descripcion;
-                //libro.Images = i.Images;
+                categoria.PkCategoria = i.PkCategoria;
+                categoria.Nombre = i.Nombre;
 
-                _context.Entry(libro).State = EntityState.Modified;
+                _context.Entry(categoria).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
 
-                return libro;
+                return categoria;
 
             }
             catch (Exception ex)
@@ -92,15 +86,15 @@ namespace ProyectoWebDL.Services.Service
                 throw new Exception("Succedio un error " + ex.Message);
             }
         }
-        public bool EliminarLibro(int id)
+        public bool EliminarCategoria(int id)
         {
             try
             {
-                Libro libro = _context.Libros.Find(id);
+                Categoria categorias = _context.Categorias.Find(id);
 
-                if (libro != null)
+                if (categorias != null)
                 {
-                    var res = _context.Libros.Remove(libro);
+                    var res = _context.Categorias.Remove(categorias);
                     _context.SaveChanges();
                     return true;
                 }

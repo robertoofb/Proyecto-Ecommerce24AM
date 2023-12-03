@@ -52,7 +52,7 @@ namespace ProyectoWebDL.Controllers
         }
 
         [HttpPost]
-        public IActionResult Crear(Usuario request)
+        public IActionResult Crear([FromForm] Usuario request)
         {
             try
             {

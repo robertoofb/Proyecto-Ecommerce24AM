@@ -12,8 +12,8 @@ using ProyectoWebDL.Context;
 namespace ProyectoWebDL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231127163052_Ecommerce24AM")]
-    partial class Ecommerce24AM
+    [Migration("20231203072229_ScireHub2")]
+    partial class ScireHub2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,52 +33,83 @@ namespace ProyectoWebDL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PkArticulo"));
 
+                    b.Property<string>("Autor")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Descripcion")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("FkCategoria")
+                        .HasColumnType("int");
 
                     b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<double>("Precio")
-                        .HasColumnType("float");
-
                     b.Property<string>("UrlImagenPath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UrlPdfPath")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("PkArticulo");
 
+                    b.HasIndex("FkCategoria");
+
                     b.ToTable("Articulos");
                 });
 
-            modelBuilder.Entity("ProyectoWebDL.Models.Entities.Libro", b =>
+            modelBuilder.Entity("ProyectoWebDL.Models.Entities.Categoria", b =>
                 {
-                    b.Property<int>("PkLibro")
+                    b.Property<int>("PkCategoria")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PkLibro"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PkCategoria"));
 
-                    b.Property<bool>("Activo")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("Descripcion")
+                    b.Property<string>("Nombre")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Images")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("PkCategoria");
 
-                    b.Property<string>("Titulo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.ToTable("Categorias");
 
-                    b.HasKey("PkLibro");
-
-                    b.ToTable("Libros");
+                    b.HasData(
+                        new
+                        {
+                            PkCategoria = 1,
+                            Nombre = "Software"
+                        },
+                        new
+                        {
+                            PkCategoria = 2,
+                            Nombre = "Biomédica"
+                        },
+                        new
+                        {
+                            PkCategoria = 3,
+                            Nombre = "Biotecnología"
+                        },
+                        new
+                        {
+                            PkCategoria = 4,
+                            Nombre = "Finanzas"
+                        },
+                        new
+                        {
+                            PkCategoria = 5,
+                            Nombre = "Administración"
+                        },
+                        new
+                        {
+                            PkCategoria = 6,
+                            Nombre = "Terapia Física"
+                        });
                 });
 
             modelBuilder.Entity("ProyectoWebDL.Models.Entities.Rol", b =>
@@ -101,12 +132,17 @@ namespace ProyectoWebDL.Migrations
                         new
                         {
                             PkRoles = 1,
-                            Nombre = "admin"
+                            Nombre = "SA"
                         },
                         new
                         {
                             PkRoles = 2,
-                            Nombre = "sa"
+                            Nombre = "Usuario"
+                        },
+                        new
+                        {
+                            PkRoles = 3,
+                            Nombre = "Investigador"
                         });
                 });
 
@@ -118,7 +154,19 @@ namespace ProyectoWebDL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PKUsuario"));
 
-                    b.Property<string>("Apellido")
+                    b.Property<string>("Apellido1")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Apellido2")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Contraseña")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Correo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -129,11 +177,11 @@ namespace ProyectoWebDL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Password")
+                    b.Property<string>("NombreUsuario")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("UserName")
+                    b.Property<string>("UrlImagenPath")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -147,12 +195,24 @@ namespace ProyectoWebDL.Migrations
                         new
                         {
                             PKUsuario = 1,
-                            Apellido = "Sosa",
+                            Apellido1 = "Fierro",
+                            Apellido2 = "Ballote",
+                            Contraseña = "1234",
+                            Correo = "roberto@gmail.com",
                             FkRol = 1,
-                            Nombre = "Maria Jose",
-                            Password = "1234",
-                            UserName = "Majo"
+                            Nombre = "Roberto",
+                            NombreUsuario = "robertofb",
+                            UrlImagenPath = "imagen/siu"
                         });
+                });
+
+            modelBuilder.Entity("ProyectoWebDL.Models.Entities.Articulo", b =>
+                {
+                    b.HasOne("ProyectoWebDL.Models.Entities.Categoria", "Categorias")
+                        .WithMany()
+                        .HasForeignKey("FkCategoria");
+
+                    b.Navigation("Categorias");
                 });
 
             modelBuilder.Entity("ProyectoWebDL.Models.Entities.Usuario", b =>

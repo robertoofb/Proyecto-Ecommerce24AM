@@ -1,18 +1,16 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using ProyectoWebDL.Models.Entities;
 using ProyectoWebDL.Services.IServices;
-using ProyectoWebDL.Services.Service;
 
 namespace ProyectoWebDL.Controllers
 {
-    public class LibroController : Controller
+    public class CategoriaController : Controller
     {
         //Constructor para el uso de base de datos
-        private readonly ILibroServices _libroServices;
-        public LibroController(ILibroServices libroServices)
+        private readonly ICategoriaServices _categoriaServices;
+        public CategoriaController(ICategoriaServices categoriaServices)
         {
-            _libroServices = libroServices;
+            _categoriaServices = categoriaServices;
         }
 
         [HttpGet]
@@ -21,9 +19,7 @@ namespace ProyectoWebDL.Controllers
         {
             try
             {
-                //Uso de la lista de los articulos para que se muestre al abrir la vista
-
-                return View(await _libroServices.GetLibros());
+                return View(await _categoriaServices.GetCategoria());
 
                 /*var response = await _articuloServices.GetArticulos();
                 return View(response);*/
@@ -39,38 +35,41 @@ namespace ProyectoWebDL.Controllers
         {
             return View();
         }
+
         [HttpPost]
-        public IActionResult Crear(Libro request)
+        public IActionResult Crear(Categoria request)
         {
             try
             {
-                var response = _libroServices.CrearLibro(request);
+                var response = _categoriaServices.CrearCategoria(request);
+                //Esta funcion return sirve para volver al index despues de la accion
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception ex)
             {
-                throw new Exception("Sucedio un error" + ex.Message);
+
+                throw new Exception("Error" + ex.Message);
             }
         }
 
         [HttpGet]
         public async Task<IActionResult> Editar(int id)
         {
-            var response = await _libroServices.GetByIdLibro(id);
+            var response = await _categoriaServices.GetByIdCategoria(id);
             return View(response);
         }
 
         [HttpPost]
-        public IActionResult Editar(Libro request)
+        public IActionResult Editar(Categoria request)
         {
-            var response = _libroServices.EditarLibro(request);
-            //Esta funcion return sirve para volver al index despues de la accion
+            var response = _categoriaServices.EditarCategoria(request);
             return RedirectToAction(nameof(Index));
         }
+
         [HttpDelete]
         public IActionResult Eliminar(int id)
         {
-            bool result = _libroServices.EliminarLibro(id);
+            bool result = _categoriaServices.EliminarCategoria(id);
             if (result = true)
             {
                 return Json(new { succes = true });

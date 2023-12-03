@@ -1,12 +1,14 @@
-﻿@model IEnumerable<ProyectoWebDL.Models.Entities.Libro>
+﻿@model IEnumerable<ProyectoWebDL.Models.Entities.Categoria>
 
 @{
     Layout = "_LayoutDashboard";
 }
 
+<h1>Gestion de categorias</h1>
+
 <div class="row">
     <div class="offset-10 colborder-4 mb-4">
-        <a asp-action="Crear" asp-controller="Libro" class="btn btn-success"><i class="fa-solid fa-plus"></i> Nuevo</a>
+        <a asp-action="Crear" asp-controller="Categoria" class="btn btn-success"><i class="fa-solid fa-plus"></i> Nuevo</a>
     </div>
 </div>
 
@@ -14,7 +16,7 @@
     <div class="offset-12">
         <div class="card border">
             <div class="card-header bg-dark">
-                <h1 class="text-white"><strong>Lista de libros</strong></h1>
+                <h1 class="text-white"><strong>Lista de categorias</strong></h1>
 
             </div>
 
@@ -24,13 +26,11 @@
                     @if (Model.Count() > 0)
                     {
 
-                        <table class="table table-bordered" id="tblLibro" width="100%" cellspacing="0">
+                        <table class="table table-bordered" id="tblRol" width="100%" cellspacing="0">
                             <thead>
                                 <tr>
-                                    <th> @Html.DisplayNameFor(x => x.PkLibro)</th>
-                                    <th> @Html.DisplayNameFor(x => x.Titulo)</th>
-                                    <th> @Html.DisplayNameFor(x => x.Descripcion )</th>
-                                    @*<th> @Html.DisplayNameFor(x => x.Images )</th>*@
+                                    <th> @Html.DisplayNameFor(x => x.PkCategoria)</th>
+                                    <th> @Html.DisplayNameFor(x => x.Nombre)</th>
 
                                     <th> Acciones</th>
                                 </tr>
@@ -44,12 +44,11 @@
                                 {
                                     <tr>
                                         <td> <span>@(i++)</span></td>
-                                        <td> @Html.DisplayFor(x => Item.Titulo )</td>
-                                        <td> @Html.DisplayFor(x => Item.Descripcion )</td>
-                                        @*<td> @Html.DisplayFor(x => Item.Images) </td>*@
+                                        <td> @Html.DisplayFor(x => Item.Nombre )</td>
+
                                         <td>
-                                            <a class="btn btn-primary" asp-action="Editar" asp-route-id=@Item.PkLibro><i class="fa-regular fa-pen-to-square"></i> Editar</a>
-                                            <a class="btn btn-danger eliminar-libro" data-id="@Item.PkLibro"><i class="fa-solid fa-trash"></i> Eliminar</a>
+                                            <a class="btn btn-primary" asp-action="Editar" asp-route-id=@Item.PkCategoria><i class="fa-regular fa-pen-to-square"></i> Editar</a>
+                                            <a class="btn btn-danger eliminar-rol" data-id="@Item.PkCategoria"><i class="fa-solid fa-trash"></i> Eliminar</a>
                                         </td>
                                     </tr>
                                 }
@@ -75,7 +74,7 @@
     <script>
         $(document).ready(function () {
             //Llamar a datatable
-            $('#tblLibro').DataTable({
+            $('#tblRol').DataTable({
                 language: {
                     "decimal": "",
                     "emptyTable": "No hay información",
@@ -100,7 +99,7 @@
         });
 
 
-        $('.eliminar-libro').on('click', function () {
+        $('.eliminar-rol').on('click', function () {
             //if (confirm('¿Estás seguro de que deseas eliminar este artículo?')) {}
 
 
@@ -116,10 +115,10 @@
             }).then((result) => {
                 if (result.isConfirmed) {
 
-                    var libroId = $(this).data('id');
+                    var rolId = $(this).data('id');
 
                     $.ajax({
-                        url: '/Libro/Eliminar/' + libroId,
+                        url: '/Categoria/Eliminar/' + rolId,
                         type: 'DELETE',
                         success: function (data) {
                             console.log(data)

@@ -12,17 +12,27 @@ namespace ProyectoWebDL.Models.Entities
         public string Nombre { get; set; }
 
         [Required]
-        public string Apellido { get; set; }
+        public string Apellido1 { get; set; }
 
         [Required]
-        public string UserName { get; set; }
+        public string? Apellido2 { get; set; }
 
         [Required]
-        public string Password { get; set; }
+        public string NombreUsuario { get; set; }
 
+        [Required]
+        public string Correo { get; set; }
+
+        [Required]
+        public string Contraseña { get; set; }
 
         [ForeignKey("Roles")]
         public int? FkRol { get; set; }
         public Rol Roles { get; set; }
+
+        [NotMapped]
+        [Display(Name = "ImagenPerfil")]
+        public IFormFile Img { get; set; }
+        public string UrlImagenPath { get; set; }
     }
 }

@@ -5,7 +5,7 @@
 }
 
 <h1>
-    Gestion de usuarios
+    Gestión de usuarios
 </h1>
 
 <div class="row">
@@ -33,10 +33,12 @@
                                 <tr>
                                     <th>#</th>
                                     <th> @Html.DisplayNameFor(x => x.Nombre)</th>
-                                    <th> @Html.DisplayNameFor(x => x.Apellido)</th>
+                                    <th> @Html.DisplayNameFor(x => x.Apellido1)</th>
+                                    <th> @Html.DisplayNameFor(x => x.Apellido2)</th>
                                     <th>Usuario</th>
-                                    <th> @Html.DisplayNameFor(x => x.Password)</th>
+                                    <th> @Html.DisplayNameFor(x => x.Contraseña)</th>
                                     <th>Rol</th>
+                                    <th>FotoPerfil</th>
 
                                     <th> Acciones</th>
                                 </tr>
@@ -51,10 +53,13 @@
                                     <tr>
                                         <td> <span>@(i++)</span></td>
                                         <td> @Html.DisplayFor(x => Item.Nombre )</td>
-                                        <td> @Html.DisplayFor(x => Item.Apellido)</td>
-                                        <td> @Html.DisplayFor(x => Item.UserName) </td>
-                                        <td> @Html.DisplayFor(x => Item.Password) </td>
+                                        <td> @Html.DisplayFor(x => Item.Apellido1)</td>
+                                        <td> @Html.DisplayFor(x => Item.Apellido2)</td>
+                                        <td> @Html.DisplayFor(x => Item.NombreUsuario) </td>
+                                        <td> @Html.DisplayFor(x => Item.Contraseña) </td>
                                         <td> @Html.DisplayFor(x => Item.Roles.Nombre) </td>
+                                        <th> @Html.DisplayFor(x => Item.UrlImagenPath )</th>
+
                                         <td>
                                             <a class="btn btn-primary" asp-action="Editar" asp-route-id=@Item.PKUsuario><i class="fa-regular fa-pen-to-square"></i> Editar</a>
                                             <a class="btn btn-danger eliminar-usuario" data-id="@Item.PKUsuario"><i class="fa-solid fa-trash"></i> Eliminar</a>

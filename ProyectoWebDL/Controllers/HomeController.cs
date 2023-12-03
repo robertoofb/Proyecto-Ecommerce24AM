@@ -1,8 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ProyectoWebDL.Context;
 using ProyectoWebDL.Models;
+using ProyectoWebDL.Models.Entities;
 using ProyectoWebDL.Services.IServices;
+using ProyectoWebDL.Services.Service;
 using System.Diagnostics;
 
 namespace ProyectoWebDL.Controllers
@@ -11,10 +14,12 @@ namespace ProyectoWebDL.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IArticuloServices _articuloServices;
+        private readonly IUsuarioServices _usuarioServices;
         private readonly ApplicationDbContext _context;
-        public HomeController(ILogger<HomeController> logger, IArticuloServices articuloServices, ApplicationDbContext context)
+        public HomeController(ILogger<HomeController> logger, IArticuloServices articuloServices, IUsuarioServices usuarioServices, ApplicationDbContext context)
         {
             _articuloServices= articuloServices;
+            _usuarioServices = usuarioServices;
             _logger = logger;
             _context = context;
         }
@@ -24,14 +29,36 @@ namespace ProyectoWebDL.Controllers
             return View();
         }
 
-        public async Task <IActionResult> Privacy()
-        {
-            var response = await _articuloServices.GetArticulos();
-            return View(response);
-        }
         public IActionResult Contacto()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult Registrar()
+        {
+            ViewBag.Roles = _context.Roles.Select(p => new SelectListItem()
+            {
+                Text = p.Nombre,
+                Value = p.PkRoles.ToString()
+            });
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Registrar(Usuario request)
+        {
+            try
+            {
+                var response = _usuarioServices.RegistrarUsuario(request);
+                //Esta funcion return sirve para volver al index despues de la accion
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error" + ex.Message);
+            }
         }
 
         [HttpGet]
@@ -45,16 +72,20 @@ namespace ProyectoWebDL.Controllers
         {
 
             var response = _context.Usuarios.Include(z => z.Roles)
-                                                    .FirstOrDefault(x => x.UserName == user && x.Password == password);
+                                                    .FirstOrDefault(x => x.NombreUsuario == user && x.Contraseña == password);
 
 
             if (response != null)
             {
-                if (response.Roles.Nombre == "admin")
+                if (response.Roles.Nombre == "SA")
                 {
                     return Json(new { Success = true, admin = true });
                 }
-                return Json(new { Success = true, admin = false });
+                else if (response.Roles.Nombre == "Investigador")
+                {
+                    return Json(new { Success = true, investigador = true });
+                }
+                return Json(new { Success = true, investigador = false });
             }
             else
             {
