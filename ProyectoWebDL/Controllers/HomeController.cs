@@ -29,7 +29,7 @@ namespace ProyectoWebDL.Controllers
             return View();
         }
 
-        public IActionResult Contacto()
+        public IActionResult AboutUs()
         {
             return View();
         }

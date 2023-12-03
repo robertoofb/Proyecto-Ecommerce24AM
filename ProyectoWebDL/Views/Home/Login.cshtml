@@ -1,8 +1,16 @@
 ﻿@{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Iniciar Sesión";
     Layout = "_Layout";
 }
-<h1>@ViewData["Title"]</h1>
+<link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
+<link rel="stylesheet" href="~/ScireHub.styles.css" asp-append-version="true" />
+
+@* Sobrescribe la sección 'navbar' para esta vista *@
+@section navbar {
+    <div class="hidden-navbar-content">
+        <!-- Este contenido reemplazará la barra de navegación en esta vista -->
+    </div>
+}
 
 <link rel="" href="~/js/Login.js" asp-append-version="true" />
 <link rel="stylesheet" href="~/css/Login.css" asp-append-version="true" />
@@ -12,7 +20,7 @@
         <table>
             <tr>
                 <th>
-                    <input type="text" id="user" name="u" placeholder="Correo o Ususario" required="required" />
+                    <input type="text" id="user" name="u" placeholder="Correo o Usuario" required="required" />
                 </th>
                 <th> <input type="password" id="password" name="p" placeholder="Contraseña" required="required" /> </th>
             </tr>
@@ -25,7 +33,7 @@
 
         <h5 class="nuevo">¿Eres nuevo?</h5>
 
-        <button type="submit" class="btn btn-primary btn-block btn-large btn-crear-cuenta">Crear cuenta</button>
+    <button type="submit" class="btn btn-primary btn-block btn-large btn-crear-cuenta"><a asp-area="" asp-controller="Home" asp-action="Registrar">Crear cuenta</a></button>
 </div>
 
 
@@ -77,3 +85,9 @@
     });
 
 </script>
+
+@section footer1 {
+    <div class="hidden-footer1-content">
+        <!-- Este contenido reemplazará la barra de navegación en esta vista -->
+    </div>
+}

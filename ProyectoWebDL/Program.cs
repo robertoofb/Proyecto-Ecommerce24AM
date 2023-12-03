@@ -6,7 +6,7 @@ using ProyectoWebDL.Services.Service;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 //Register services here
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(

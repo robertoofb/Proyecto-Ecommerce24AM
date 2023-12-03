@@ -82,8 +82,6 @@ namespace ProyectoWebDL.Services.Service
         {
             try
             {
-                var urlImagen = i.Img.FileName;
-                i.UrlImagenPath = @"Img/usuarios/" + urlImagen;
                 Usuario request = new Usuario()
                 {
                     Nombre = i.Nombre,
@@ -92,11 +90,9 @@ namespace ProyectoWebDL.Services.Service
                     NombreUsuario = i.NombreUsuario,
                     Correo = i.Correo,
                     Contraseña = i.Contraseña,
-                    UrlImagenPath = i.UrlImagenPath,
-                    FkRol = i.FkRol,
+                    UrlImagenPath = "img",
+                    FkRol = 2,
                 };
-                SubirImg(urlImagen);
-
                 var result = await _context.Usuarios.AddAsync(request);
                 _context.SaveChanges();
 
@@ -104,6 +100,7 @@ namespace ProyectoWebDL.Services.Service
             }
             catch (Exception ex)
             {
+
                 throw new Exception("Surgio un error" + ex.Message);
             }
         }
