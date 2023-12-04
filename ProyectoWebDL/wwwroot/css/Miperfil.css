@@ -1,0 +1,528 @@
+﻿* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0C2430;
+    font-family: roboto;
+}
+
+.row {
+    margin: 0 -5px;
+    margin-left: 270px;
+    margin-right: 270px;
+}
+
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+.card {
+    height: 300px;
+    width: 100%;
+    border-radius: 3%;
+    margin-bottom: 64px;
+    position: relative;
+    display: flex;
+    background-color: transparent;
+}
+
+.title {
+    width: 100%;
+    text-align: start;
+    text-decoration: underline;
+    color: white;
+    font-size: 40px;
+}
+
+.subtitle {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    color: white;
+    font-size: 32px;
+}
+
+.sonlas3am {
+    width: 60%;
+}
+
+.dtags {
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos */
+}
+
+.tags {
+    margin-top: 16px;
+    margin-right: 10px;
+    text-decoration: none;
+    color: white;
+    font-size: 24px;
+}
+
+.redes {
+    margin-top: 64px;
+    display: flex; /* Permite alinear los elementos dentro de .redes */
+}
+
+    .redes img {
+        width: 50px;
+        height: 50px;
+        flex-direction: row;
+    }
+
+    .redes > * {
+        margin-right: 32px; /* Ajusta el espacio entre las redes */
+    }
+
+.btn {
+    width: 25%;
+    border: none;
+    margin-right: 20px;
+    background-color: #4C8CA5;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.btn2 {
+    width: 25%;
+    border: none;
+    margin-right: 20px;
+    background-color: #398AAA;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.btn3 {
+    width: 25%;
+    border: none;
+    margin-right: 20px;
+    background-color: #285566;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+
+.btn:hover {
+    background-color: #1a3a4a; /* Color de fondo al pasar el ratón */
+    color: #ffffff; /* Color de texto al pasar el ratón */
+}
+
+
+.txtbtn {
+    font-size: 24px;
+    margin-left: 16px;
+}
+
+.lupa {
+    width: 15px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+/* Float four columns side by side */
+
+
+.column {
+    overflow: hidden;
+    float: left;
+    width: 100%;
+    padding: 0 10px;
+    margin-bottom: 32px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.contenido-card {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+}
+
+.imag-card {
+    width: 27%;
+    height: 100%;
+    position: flex;
+    flex-direction: row;
+    margin-top: 16px; /* Asegura que no haya márgenes */
+}
+
+.fotoperfil {
+    width: 250px;
+    height: 250px;
+    margin: 8px;
+    border-radius: 50%;
+}
+
+p {
+    color: white;
+    display: inline;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.card1 {
+    height: 300px;
+    border-radius: 3%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    text-align: center;
+    background-color: #1C323D;
+}
+
+.columncontent {
+    overflow: hidden;
+    float: left;
+    width: 100%;
+    padding: 0 10px;
+    margin-bottom: 32px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.contenido-card1 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 66%;
+    float: left;
+    padding: 10px; /* Ajusta según sea necesario */
+    overflow: hidden;
+}
+
+.ttext {
+    font-size: 24px;
+    text-align: justify;
+    word-wrap: break-word;
+    width: 100%;
+    max-width: 100%; /* O ajusta según sea necesario */
+    margin-bottom: 32px;
+    margin-left: 16px;
+    margin-right: 16px;
+    color: white;
+}
+
+.text {
+    font-size: 16px;
+    text-align: justify;
+    word-wrap: break-word;
+    width: 100%;
+    max-width: 100%; /* O ajusta según sea necesario */
+    margin-left: 16px;
+    margin-right: 16px;
+    color: white;
+}
+
+
+
+.img-card {
+    width: 34%;
+    height: 100%;
+    float: right;
+    position: relative;
+    margin: 0; /* Asegura que no haya márgenes */
+    padding: 0;
+}
+
+    .img-card:before {
+        content: "";
+        position: absolute;
+        border-radius: 3%;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(255,255,255,0), rgb(34, 33, 33));
+    }
+
+    .img-card img {
+        width: 100%;
+        height: 100%;
+        border-radius: 3%;
+    }
+
+
+.subtitles {
+    text-align: start;
+    color: white;
+    margin-bottom: 24px;
+    margin-left: 16px;
+    font-size: 32px;
+}
+
+.card2 {
+    height: 380px;
+    border-radius: 3%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    background-color: #1C323D;
+    position: relative;
+    overflow: hidden;
+}
+
+.column2 {
+    float: left;
+    width: 50%;
+    padding: 0 10px;
+    margin-bottom: 32px;
+}
+
+.imag-card2 {
+    border-top-left-radius: 3%;
+    border-top-right-radius: 3%;
+    width: 100%;
+    height: 66%; /* El 66% de la altura de la card2 */
+    overflow: hidden;
+    position: relative;
+}
+
+    .imag-card2:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(255,255,255,0), rgb(34, 33, 33));
+    }
+
+    .imag-card2 img {
+        width: 100%;
+        height: 100%;
+    }
+
+
+.contenido-card2 {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+}
+
+.ttext2 {
+    position: absolute;
+    top: 40%; /* Ajusta según sea necesario */
+    right: 16px; /* Ajusta según sea necesario */
+    left: 16px; /* Ajusta según sea necesario */
+    font-size: 16px;
+    text-align: left;
+    word-wrap: break-word;
+    width: calc(100% - 32px); /* Resta el doble del margen para asegurarte de que el ancho sea correcto */
+    max-width: 100%;
+    color: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-height: 1.5;
+    -webkit-line-clamp: 2;
+    max-height: 4.5em;
+}
+
+.text2 {
+    font-size: 16px;
+    text-align: justify;
+    width: 100%;
+    max-width: 100%; /* O ajusta según sea necesario */
+    margin: 16px;
+    color: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-height: 1.5; /* Ajusta según sea necesario para evitar que las líneas queden cortadas */
+    -webkit-line-clamp: 3;
+    max-height: 4.5em; /* Altura máxima, ajusta según sea necesario */
+}
+
+.container-colab {
+    display: flex;
+    margin-bottom: 64px;
+}
+
+.container {
+    width: 400px;
+    margin-top: 64px;
+    margin-left: 48px;
+    background-color: #1C323D;
+    padding: 10px 20px;
+    border-radius: 20%;
+    -webkit-border-radius: 10%;
+    -moz-border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.075);
+    -webkit-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
+    -moz-box-shadow: 0 2px 5px rgba(0,0,0,0.075);
+    text-align: center;
+}
+
+    .container:hover .avatar-flip {
+        transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
+    }
+
+        .container:hover .avatar-flip img:first-child {
+            opacity: 0;
+        }
+
+        .container:hover .avatar-flip img:last-child {
+            opacity: 1;
+        }
+
+.avatar-flip {
+    border-radius: 100px;
+    overflow: hidden;
+    height: 150px;
+    width: 150px;
+    position: relative;
+    margin: auto;
+    top: -60px;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 0 13px #2f5364;
+    -webkit-box-shadow: 0 0 0 13px #2f5364;
+    -moz-box-shadow: 0 0 0 13px #2f5364;
+}
+
+    .avatar-flip img {
+        position: absolute;
+        left: 0;
+        top: 0;
+        border-radius: 100px;
+        transition: all 0.3s ease-in-out;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+    }
+
+        .avatar-flip img:first-child {
+            z-index: 1;
+        }
+
+        .avatar-flip img:last-child {
+            z-index: 0;
+            transform: rotateY(180deg);
+            -webkit-transform: rotateY(180deg);
+            opacity: 0;
+        }
+
+.name {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+.job {
+    font-size: 13px;
+    color: #00baff;
+    letter-spacing: 1px;
+    margin-bottom: 25px
+}
+
+.desc {
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.followdiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Asegura que el contenido se expanda a lo ancho */
+}
+
+.follow {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+    .follow img {
+        margin-left: 15px;
+        width: 24px; /* Ajusta según sea necesario */
+        height: 24px;
+    }
+
+.column3 {
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+    padding: 0 10px;
+    margin-bottom: 32px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.card3 {
+    height: 300px;
+    width: 65%;
+    border-radius: 3%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    text-align: center;
+    background-color: #1C323D;
+}
+
+.ttexttag {
+    font-size: 32px;
+    text-align: center;
+    width: 130%;
+    max-width: 100%; /* O ajusta según sea necesario */
+    margin-bottom: 32px;
+    color: white;
+}
+
+.texttag {
+    font-size: 24px;
+    text-align: center;
+    width: 100%;
+    max-width: 100%; /* O ajusta según sea necesario */
+    color: white;
+}
+
+.sex {
+    display: inline-flex;
+    margin: 16px;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 24px;
+}
+
+.card4 {
+    height: 300px;
+    width: 25%;
+    margin-left: 64px;
+    border-radius: 3%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
+    text-align: center;
+    background-color: #1C323D;
+}
+
+.contenido-card3 {
+    display: flex;
+    flex-wrap: wrap;
+    width: 66%;
+    float: left;
+    padding: 10px; /* Ajusta según sea necesario */
+    overflow: hidden;
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        width: 100%;
+        display: block;
+        margin-bottom:  20px;
+          
+    }
+}

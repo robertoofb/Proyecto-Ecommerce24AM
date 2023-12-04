@@ -34,6 +34,21 @@ namespace ProyectoWebDL.Controllers
             return View();
         }
 
+        public IActionResult Investigadores()
+        {
+            return View();
+        }
+
+        public IActionResult Articulos()
+        {
+            return View();
+        }
+
+        public IActionResult Miperfil()
+        {
+            return View();
+        }
+
         [HttpGet]
         public IActionResult Registrar()
         {
@@ -44,6 +59,8 @@ namespace ProyectoWebDL.Controllers
             });
             return View();
         }
+
+
 
         [HttpPost]
         public IActionResult Registrar(Usuario request)
