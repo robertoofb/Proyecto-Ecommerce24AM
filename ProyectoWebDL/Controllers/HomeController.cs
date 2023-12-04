@@ -24,9 +24,10 @@ namespace ProyectoWebDL.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var response = await _articuloServices.GetArticulos();
+            return View(response);
         }
 
         public IActionResult AboutUs()
@@ -34,9 +35,10 @@ namespace ProyectoWebDL.Controllers
             return View();
         }
 
-        public IActionResult Investigadores()
+        public async Task<IActionResult> Investigadores()
         {
-            return View();
+            var response = await _usuarioServices.GetInvestigadores();
+            return View(response);
         }
 
         public IActionResult Articulos()
@@ -45,6 +47,16 @@ namespace ProyectoWebDL.Controllers
         }
 
         public IActionResult Miperfil()
+        {
+            return View();
+        }
+
+        public IActionResult SubirInv()
+        {
+            return View();
+        }
+
+        public IActionResult ElegirArt()
         {
             return View();
         }

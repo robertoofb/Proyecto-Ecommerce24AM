@@ -5,8 +5,8 @@ namespace ProyectoWebDL.Services.IServices
     public interface IUsuarioServices
     {
         public Task<List<Usuario>> GetUsuarios();
+        public Task<List<Usuario>> GetInvestigadores();
         public Task<Usuario> GetByIdUsuario(int id);
-
         public Task<Usuario> CrearUsuario(Usuario i);
         public Task<Usuario> RegistrarUsuario(Usuario i);
         public Task<Usuario> EditarUsuario(Usuario i);

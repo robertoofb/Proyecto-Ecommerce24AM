@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<ProyectoWebDL.Models.Entities.Articulo>
+@{
     ViewData["Title"] = "Inicio";
 }
 
@@ -43,23 +44,19 @@
 
     <section class="contenedor-cards-footer">
         <h2>Explora nuestros artículos más recientes...</h2>
-        <div class="card">
-            <div class="image">
-                <img src="~/Images/ciencia.png" alt="Placeholder Image">
-                <div class="title">Tu Título Aquí</div>
+
+        @foreach (var Item in Model)
+        {
+            <div class="card">
+                <div class="image">
+                    <img src="/@Html.DisplayFor(x => Item.UrlImagenPath)" alt="Placeholder Image">
+                    <div class="title">@Html.DisplayFor(x => Item.Nombre)</div>
+                </div>
+                <div class="text">
+                    <p>@Html.DisplayFor(x => Item.Descripcion )</p>
+                </div>
             </div>
-            <div class="text">
-                <p>Cuando se trata de desarrollar aplicaciones de escritorio, puedes considerar el uso de C++ o Java. Sin embargo, puede sorprenderte saber que también puedes utilizar JavaScript para crear aplicaciones para Windows, OSX y muchas otras plataformas. ¡Sí, es verdad! Utilizando Electron.js, puedes construir una aplicación de escritorio con JavaScript.</p>
-            </div>
-        </div>
-        <div class="card">
-            <div class="image">
-                <img src="~/Images/ciencia.png" alt="Placeholder Image">
-                <div class="title">Tu Título Aquí</div>
-            </div>
-            <div class="text">
-                <p>Cuando se trata de desarrollar aplicaciones de escritorio, puedes considerar el uso de C++ o Java. Sin embargo, puede sorprenderte saber que también puedes utilizar JavaScript para crear aplicaciones para Windows, OSX y muchas otras plataformas. ¡Sí, es verdad! Utilizando Electron.js, puedes construir una aplicación de escritorio con JavaScript.</p>
-            </div>
-        </div>
+        }
+
     </section>
 </section>

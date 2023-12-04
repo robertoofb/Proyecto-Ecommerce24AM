@@ -34,6 +34,21 @@ namespace ProyectoWebDL.Services.Service
 
         }
 
+        public async Task<List<Usuario>> GetInvestigadores()
+        {
+            try
+            {
+
+                return await _context.Usuarios.Where(x => x.Roles.Nombre == "Investigador").ToListAsync();
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Surgio un error" + ex.Message);
+            }
+
+        }
+
         public async Task<Usuario> GetByIdUsuario(int id)
         {
             try

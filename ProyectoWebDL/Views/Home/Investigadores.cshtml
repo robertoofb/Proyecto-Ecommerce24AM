@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<ProyectoWebDL.Models.Entities.Usuario>
+@{
     ViewData["Title"] = "Investigadores";
     Layout = null;
 }
@@ -10,255 +11,28 @@
         <h2 class="tt">Investigadores Destacados</h2>
     </div>
     <div class="cards-invs">
+
+
         <div class="contenedor-title-mas">
-            <H3>Investigadores de Software</H3>
             <button class="button-mas">Más...</button>
         </div>
+
         <div class="carrera">
-            <div class="container">
-                <div class="avatar-flip">
-                    <img src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg" height="150" width="150">
-                    <img src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2016/02/CD.gif?fit=480%2C270&quality=50&strip=all&ssl=1" height="150" width="150">
-                </div>
-                <div class="followdiv">
-                    <h2>Rodolfo Hernandez</h2>
-                    <button class="follow"><img src="~/css/person-circle.svg" alt=""></button>
-                </div>
 
-                <h4>Investigador</h4>
-                <p>Experto en inteligencia artificial aplicada a la salud, el Dr. Hernandez ha desarrollado algoritmos avanzados para el diagnóstico temprano de enfermedades a través de imágenes médicas.</p>
-            </div>
-            <div class="container">
-                <div class="avatar-flip">
-                    <img src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg" height="150" width="150">
-                    <img src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2016/02/CD.gif?fit=480%2C270&quality=50&strip=all&ssl=1" height="150" width="150">
-                </div>
-                <div class="followdiv">
-                    <h2>Rodolfo Hernandez</h2>
-                    <button class="follow"><img src="~/css/person-circle.svg" alt=""></button>
-                </div>
-                <h4>Investigador</h4>
-                <p>Experto en inteligencia artificial aplicada a la salud, el Dr. Hernandez ha desarrollado algoritmos avanzados para el diagnóstico temprano de enfermedades a través de imágenes médicas.</p>
-            </div>
-            <div class="container">
-                <div class="avatar-flip">
-                    <img src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg" height="150" width="150">
-                    <img src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2016/02/CD.gif?fit=480%2C270&quality=50&strip=all&ssl=1" height="150" width="150">
-                </div>
-                <h2>Rodolfo Hernandez</h2>
-                <h4>Investigador</h4>
-                <p>Experto en inteligencia artificial aplicada a la salud, el Dr. Hernandez ha desarrollado algoritmos avanzados para el diagnóstico temprano de enfermedades a través de imágenes médicas.</p>
-            </div>
-        </div>
-        <div class="cards-invs">
-            <div class="contenedor-title-mas">
-                <H3>Investigadores de Biotecnologia</H3>
-                <button class="button-mas">Más...</button>
-            </div>
-            <div class="carrera">
+            @foreach (var Item in Model)
+            {
                 <div class="container">
                     <div class="avatar-flip">
-                        <img src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg" height="150" width="150">
+                        <img src="/@Html.DisplayFor(x => Item.UrlImagenPath)" height="150" width="150">
                         <img src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2016/02/CD.gif?fit=480%2C270&quality=50&strip=all&ssl=1" height="150" width="150">
                     </div>
-                    <div class="followdiv">
-                        <h2>Rodolfo Hernandez</h2>
-                        <button class="follow"><img src="~/css/person-circle.svg" alt=""></button>
-                    </div>
+                    <h2>@Html.DisplayFor(x => Item.Nombre )</h2>
+                    <h4>Investigador</h4>
+                    <p>¡Bienvenido al mundo de la innovación en el desarrollo de software! Como Investigador en Software, soy un profesional especializado en la investigación, desarrollo y mejora continua de tecnologías y procesos relacionados con el software.</p>
+                </div>
+            }
 
-                    <h4>Investigador</h4>
-                    <p>Experto en inteligencia artificial aplicada a la salud, el Dr. Hernandez ha desarrollado algoritmos avanzados para el diagnóstico temprano de enfermedades a través de imágenes médicas.</p>
-                </div>
-                <div class="container">
-                    <div class="avatar-flip">
-                        <img src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg" height="150" width="150">
-                        <img src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2016/02/CD.gif?fit=480%2C270&quality=50&strip=all&ssl=1" height="150" width="150">
-                    </div>
-                    <div class="followdiv">
-                        <h2>Rodolfo Hernandez</h2>
-                        <button class="follow"><img src="~/css/person-circle.svg" alt=""></button>
-                    </div>
-                    <h4>Investigador</h4>
-                    <p>Experto en inteligencia artificial aplicada a la salud, el Dr. Hernandez ha desarrollado algoritmos avanzados para el diagnóstico temprano de enfermedades a través de imágenes médicas.</p>
-                </div>
-                <div class="container">
-                    <div class="avatar-flip">
-                        <img src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg" height="150" width="150">
-                        <img src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2016/02/CD.gif?fit=480%2C270&quality=50&strip=all&ssl=1" height="150" width="150">
-                    </div>
-                    <h2>Rodolfo Hernandez</h2>
-                    <h4>Investigador</h4>
-                    <p>Experto en inteligencia artificial aplicada a la salud, el Dr. Hernandez ha desarrollado algoritmos avanzados para el diagnóstico temprano de enfermedades a través de imágenes médicas.</p>
-                </div>
-            </div>
-            <div class="contenedor-title-mas">
-                <H3>Investigadores de Admisistración</H3>
-                <button class="button-mas">Más...</button>
-            </div>
-            <div class="carrera">
-                <div class="container">
-                    <div class="avatar-flip">
-                        <img src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg" height="150" width="150">
-                        <img src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2016/02/CD.gif?fit=480%2C270&quality=50&strip=all&ssl=1" height="150" width="150">
-                    </div>
-                    <div class="followdiv">
-                        <h2>Rodolfo Hernandez</h2>
-                        <button class="follow"><img src="~/css/person-circle.svg" alt=""></button>
-                    </div>
-                    <h4>Investigador</h4>
-                    <p>Experto en inteligencia artificial aplicada a la salud, el Dr. Hernandez ha desarrollado algoritmos avanzados para el diagnóstico temprano de enfermedades a través de imágenes médicas.</p>
-                </div>
-                <div class="container">
-                    <div class="avatar-flip">
-                        <img src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg" height="150" width="150">
-                        <img src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2016/02/CD.gif?fit=480%2C270&quality=50&strip=all&ssl=1" height="150" width="150">
-                    </div>
-                    <div class="followdiv">
-                        <h2>Rodolfo Hernandez</h2>
-                        <button class="follow"><img src="~/css/person-circle.svg" alt=""></button>
-                    </div>
-                    <h4>Investigador</h4>
-                    <p>Experto en inteligencia artificial aplicada a la salud, el Dr. Hernandez ha desarrollado algoritmos avanzados para el diagnóstico temprano de enfermedades a través de imágenes médicas.</p>
-                </div>
-                <div class="container">
-                    <div class="avatar-flip">
-                        <img src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg" height="150" width="150">
-                        <img src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2016/02/CD.gif?fit=480%2C270&quality=50&strip=all&ssl=1" height="150" width="150">
-                    </div>
-                    <div class="followdiv">
-                        <h2>Rodolfo Hernandez</h2>
-                        <button class="follow"><img src="~/css/person-circle.svg" alt=""></button>
-                    </div>
-                    <h4>Investigador</h4>
-                    <p>Experto en inteligencia artificial aplicada a la salud, el Dr. Hernandez ha desarrollado algoritmos avanzados para el diagnóstico temprano de enfermedades a través de imágenes médicas.</p>
-                </div>
-            </div>
-            <div class="contenedor-title-mas">
-                <H3>Investigadores de Terapia</H3>
-                <button class="button-mas">Más...</button>
-            </div>
-            <div class="carrera">
-                <div class="container">
-                    <div class="avatar-flip">
-                        <img src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg" height="150" width="150">
-                        <img src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2016/02/CD.gif?fit=480%2C270&quality=50&strip=all&ssl=1" height="150" width="150">
-                    </div>
-                    <div class="followdiv">
-                        <h2>Rodolfo Hernandez</h2>
-                        <button class="follow"><img src="~/css/person-circle.svg" alt=""></button>
-                    </div>
-                    <h4>Investigador</h4>
-                    <p>Experto en inteligencia artificial aplicada a la salud, el Dr. Hernandez ha desarrollado algoritmos avanzados para el diagnóstico temprano de enfermedades a través de imágenes médicas.</p>
-                </div>
-                <div class="container">
-                    <div class="avatar-flip">
-                        <img src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg" height="150" width="150">
-                        <img src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2016/02/CD.gif?fit=480%2C270&quality=50&strip=all&ssl=1" height="150" width="150">
-                    </div>
-                    <div class="followdiv">
-                        <h2>Rodolfo Hernandez</h2>
-                        <button class="follow"><img src="~/css/person-circle.svg" alt=""></button>
-                    </div>
-                    <h4>Investigador</h4>
-                    <p>Experto en inteligencia artificial aplicada a la salud, el Dr. Hernandez ha desarrollado algoritmos avanzados para el diagnóstico temprano de enfermedades a través de imágenes médicas.</p>
-                </div>
-                <div class="container">
-                    <div class="avatar-flip">
-                        <img src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg" height="150" width="150">
-                        <img src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2016/02/CD.gif?fit=480%2C270&quality=50&strip=all&ssl=1" height="150" width="150">
-                    </div>
-                    <div class="followdiv">
-                        <h2>Rodolfo Hernandez</h2>
-                        <button class="follow"><img src="~/css/person-circle.svg" alt=""></button>
-                    </div>
-                    <h4>Investigador</h4>
-                    <p>Experto en inteligencia artificial aplicada a la salud, el Dr. Hernandez ha desarrollado algoritmos avanzados para el diagnóstico temprano de enfermedades a través de imágenes médicas.</p>
-                </div>
-            </div>
-            <div class="contenedor-title-mas">
-                <H3>Investigadores de Finanzas</H3>
-                <button class="button-mas">Más...</button>
-            </div>
-            <div class="carrera">
-                <div class="container">
-                    <div class="avatar-flip">
-                        <img src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg" height="150" width="150">
-                        <img src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2016/02/CD.gif?fit=480%2C270&quality=50&strip=all&ssl=1" height="150" width="150">
-                    </div>
-                    <div class="followdiv">
-                        <h2>Rodolfo Hernandez</h2>
-                        <button class="follow"><img src="~/css/person-circle.svg" alt=""></button>
-                    </div>
-                    <h4>Investigador</h4>
-                    <p>Experto en inteligencia artificial aplicada a la salud, el Dr. Hernandez ha desarrollado algoritmos avanzados para el diagnóstico temprano de enfermedades a través de imágenes médicas.</p>
-                </div>
-                <div class="container">
-                    <div class="avatar-flip">
-                        <img src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg" height="150" width="150">
-                        <img src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2016/02/CD.gif?fit=480%2C270&quality=50&strip=all&ssl=1" height="150" width="150">
-                    </div>
-                    <div class="followdiv">
-                        <h2>Rodolfo Hernandez</h2>
-                        <button class="follow"><img src="~/css/person-circle.svg" alt=""></button>
-                    </div>
-                    <h4>Investigador</h4>
-                    <p>Experto en inteligencia artificial aplicada a la salud, el Dr. Hernandez ha desarrollado algoritmos avanzados para el diagnóstico temprano de enfermedades a través de imágenes médicas.</p>
-                </div>
-                <div class="container">
-                    <div class="avatar-flip">
-                        <img src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg" height="150" width="150">
-                        <img src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2016/02/CD.gif?fit=480%2C270&quality=50&strip=all&ssl=1" height="150" width="150">
-                    </div>
-                    <div class="followdiv">
-                        <h2>Rodolfo Hernandez</h2>
-                        <button class="follow"><img src="~/css/person-circle.svg" alt=""></button>
-                    </div>
-                    <h4>Investigador</h4>
-                    <p>Experto en inteligencia artificial aplicada a la salud, el Dr. Hernandez ha desarrollado algoritmos avanzados para el diagnóstico temprano de enfermedades a través de imágenes médicas.</p>
-                </div>
-            </div>
-            <div class="contenedor-title-mas">
-                <H3>Investigadores de Biomedica</H3>
-                <button class="button-mas">Más...</button>
-            </div>
-            <div class="carrera">
-                <div class="container">
-                    <div class="avatar-flip">
-                        <img src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg" height="150" width="150">
-                        <img src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2016/02/CD.gif?fit=480%2C270&quality=50&strip=all&ssl=1" height="150" width="150">
-                    </div>
-                    <div class="followdiv">
-                        <h2>Rodolfo Hernandez</h2>
-                        <button class="follow"><img src="~/css/person-circle.svg" alt=""></button>
-                    </div>
-                    <h4>Investigador</h4>
-                    <p>Experto en inteligencia artificial aplicada a la salud, el Dr. Hernandez ha desarrollado algoritmos avanzados para el diagnóstico temprano de enfermedades a través de imágenes médicas.</p>
-                </div>
-                <div class="container">
-                    <div class="avatar-flip">
-                        <img src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg" height="150" width="150">
-                        <img src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2016/02/CD.gif?fit=480%2C270&quality=50&strip=all&ssl=1" height="150" width="150">
-                    </div>
-                    <div class="followdiv">
-                        <h2>Rodolfo Hernandez</h2>
-                        <button class="follow"><img src="~/css/person-circle.svg" alt=""></button>
-                    </div>
-                    <h4>Investigador</h4>
-                    <p>Experto en inteligencia artificial aplicada a la salud, el Dr. Hernandez ha desarrollado algoritmos avanzados para el diagnóstico temprano de enfermedades a través de imágenes médicas.</p>
-                </div>
-                <div class="container">
-                    <div class="avatar-flip">
-                        <img src="http://media.idownloadblog.com/wp-content/uploads/2012/04/Phil-Schiller-headshot-e1362692403868.jpg" height="150" width="150">
-                        <img src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2016/02/CD.gif?fit=480%2C270&quality=50&strip=all&ssl=1" height="150" width="150">
-                    </div>
-                    <div class="followdiv">
-                        <h2>Rodolfo Hernandez</h2>
-                        <button class="follow"><img src="~/css/person-circle.svg" alt=""></button>
-                    </div>
-                    <h4>Investigador</h4>
-                    <p>Experto en inteligencia artificial aplicada a la salud, el Dr. Hernandez ha desarrollado algoritmos avanzados para el diagnóstico temprano de enfermedades a través de imágenes médicas.</p>
-                </div>
-            </div>
         </div>
+
     </div>
 </div>

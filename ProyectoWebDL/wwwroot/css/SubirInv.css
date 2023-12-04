@@ -1,0 +1,283 @@
+﻿body {
+    background: #0C2430;
+    color: white;
+    margin: auto;
+    margin-left: 270px;
+    margin-right: 270px;
+}
+
+.contenedor-subir {
+    margin-bottom: 100px;
+    border-radius: 2%;
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    color: #f0f9ff;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.subirtitle {
+    font-size: 40px;
+    text-decoration: underline;
+    text-align: left;
+    letter-spacing: 2px;
+}
+
+.añadir {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 32px;
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    outline: none;
+    padding: 20px;
+    font-size: 32px;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2), 0 1px 1px rgba(255, 255, 255, 0.2);
+    transition: box-shadow .5s ease;
+}
+
+    .añadir:focus {
+        box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.4), 0 1px 1px rgba(255, 255, 255, 0.2);
+    }
+
+
+.sinopsis {
+    margin-top: 16px;
+    width: 100%;
+    text-align: justify;
+    height: 300px;
+    margin-bottom: 32px;
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    outline: none;
+    padding: 20px;
+    font-size: 32px;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    box-shadow: inset 0 -5px 45px rgba(100, 100, 100, 0.2), 0 1px 1px rgba(255, 255, 255, 0.2);
+    transition: box-shadow .5s ease;
+    overflow: auto; /* Añadido para permitir el desplazamiento vertical si el contenido es más largo que la altura */
+}
+
+.separator-line {
+    width: 100%;
+    height: 1px;
+    background-color: #D98E04;
+    border: 3px solid #D98E04;
+    margin-bottom: 32px;
+}
+
+.subirimg {
+    position: relative;
+    margin-bottom: 64px;
+}
+
+.cont-img {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    border-radius: 3%;
+    border: 3px solid #fff;
+    background-color: #162D39;
+    overflow: hidden; /* Añadido para evitar que la imagen se desborde del contenedor */
+}
+
+.uploaded-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Añadido para mantener la proporción de aspecto y evitar distorsiones */
+}
+
+
+
+.btn {
+    width: 25%;
+    padding: 5px;
+    position: absolute;
+    bottom: 10px; /* Puedes ajustar esto según sea necesario */
+    left: 50%; /* Ajusta según sea necesario o utiliza otros métodos de centrado */
+    transform: translateX(-50%);
+    border: none;
+    background-color: #4C8CA5;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    align-items: center;
+    text-align: center;
+    z-index: 2;
+}
+
+    .btn:hover {
+        background-color: #306886; /* Cambiamos el color de fondo al pasar el mouse sobre el botón */
+    }
+
+.btn2 {
+    width: 25%;
+    padding: 20px;
+    position: absolute;
+    left: 50%; /* Ajusta según sea necesario o utiliza otros métodos de centrado */
+    transform: translateX(-50%);
+    border: none;
+    background-color: #4C8CA5;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    align-items: center;
+    text-align: center;
+}
+
+    .btn2:hover {
+        background-color: #306886; /* Cambiamos el color de fondo al pasar el mouse sobre el botón */
+    }
+
+.tags {
+    margin-top: 16px;
+    display: flex; /* Permite alinear los elementos dentro de .redes */
+    justify-content: center; /* Añadido para centrar horizontalmente los elementos dentro de .tags */
+}
+
+.tag {
+    width: 100%;
+    border: none;
+    margin-right: 10px;
+    margin-left: 10px;
+    background-color: #4D5D66;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 16px;
+    align-items: center;
+    text-align: center; /* Añadido para centrar el texto horizontalmente */
+}
+
+.txtbtn {
+    font-size: 24px;
+    margin: 5px;
+    text-align: center;
+}
+
+.cont-archivo {
+    background-color: #193947;
+    max-width: 100%;
+    padding: 20px;
+}
+
+.file {
+    width: 25%;
+    padding: 20px;
+    bottom: 10px; /* Puedes ajustar esto según sea necesario */
+    left: 50%; /* Ajusta según sea necesario o utiliza otros métodos de centrado */
+    transform: translateX(-50%);
+    border: none;
+    background-color: #D98E04;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    align-items: center;
+    text-align: center;
+    z-index: 2;
+}
+
+.pyp,
+.priv,
+.public {
+    margin-bottom: 32px;
+    border-radius: 16px;
+    display: flex;
+    padding: 24px;
+    background-color: #4C8CA5;
+}
+
+.imgarchivo {
+    width: 50px;
+    margin: 0;
+}
+
+.textarchivos {
+    display: flex;
+    flex-direction: column;
+    margin-left: 32px;
+}
+
+.titlearchivo {
+    font-size: 32px;
+    margin: 0;
+    padding: 0;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.container-ps {
+    width: 100%;
+    height: 730px;
+}
+
+input[type="checkbox"] {
+    display: none; /* Oculta la casilla de verificación por defecto */
+}
+
+.lab {
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+    padding: 10px;
+    background-color: transparent;
+    color: white;
+    border: 5px solid #fff;
+    border-radius: 5px;
+}
+
+input[type="checkbox"]:checked + label {
+    background-color: transparent;
+    border-color: #fff;
+}
+
+.paloma {
+    width: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none; /* Inicialmente oculta la paloma */
+}
+
+
+input[type="checkbox"]:checked + label + .paloma {
+    display: block; /* Muestra la paloma cuando el checkbox está marcado */
+}
+
+.terminos {
+    display: flex;
+}
+
+.lee {
+    margin-left: 16px;
+}
+
+
+
+h2 {
+    font-size: 32px;
+}
+
+.h2btn {
+    padding: 0;
+    margin: 0;
+    font-size: 32px;
+}
+
+p {
+    font-size: 20px;
+}
