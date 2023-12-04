@@ -145,6 +145,7 @@
 }
 
 .tag {
+    height:40px;
     width: 100%;
     border: none;
     margin-right: 10px;
@@ -157,6 +158,10 @@
     align-items: center;
     text-align: center; /* Añadido para centrar el texto horizontalmente */
 }
+
+    .tag:hover {
+        background-color: #D98E04;
+    }
 
 .txtbtn {
     font-size: 24px;
@@ -186,6 +191,9 @@
     z-index: 2;
 }
 
+    .file:hover {
+        background-color: #b7811f
+    }
 .pyp,
 .priv,
 .public {
@@ -194,7 +202,14 @@
     display: flex;
     padding: 24px;
     background-color: #4C8CA5;
+    cursor: pointer;
 }
+
+    .pyp:hover,
+    .priv:hover,
+    .public:hover {
+        background-color: #2a5469;
+    }
 
 .imgarchivo {
     width: 50px;

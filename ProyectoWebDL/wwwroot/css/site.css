@@ -111,16 +111,25 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-     margin-top: 64px;
+    margin-top: 64px;
     margin-bottom: 64px;
     flex-wrap: nowrap;
+    padding: 10px;
 }
+
 
 .icono-carrera {
     text-align: center;
     margin-bottom: 23px; /* Espacio entre elementos */
     padding: 0 23px; /* Padding horizontal */
 }
+
+.icono-carrera:hover {
+    background-color: #ffffff20;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
 
     .icono-carrera img {
 
