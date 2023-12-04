@@ -2,11 +2,19 @@
     background: #0C2430;
     color: white;
     margin: auto;
+}
+
+.general{
+    margin-top: 64px;
+}
+
+.contenedor-principal-au {
+    margin-bottom: 150px;
     margin-left: 270px;
     margin-right: 270px;
 }
-
 .contenedor-au-info {
+    margin-top: 64px;
     margin-bottom: 100px;
     border-radius: 5%;
     width: 100%;
@@ -16,11 +24,12 @@
     display: flex;
     flex-direction: column;
     padding: 40px;
-    margin-top: 40px;
+    margin-top: 100px;
     position: relative;
 }
 
 .au-title {
+    margin-top: 64px;
     font-size: 40px;
     text-decoration: underline;
     text-align: left;
@@ -28,6 +37,7 @@
 
 .au-info-content,
 .scirehub-info {
+    margin-top: 64px;
     width: 100%;
 }
 
@@ -166,6 +176,7 @@ h2, p {
 }
 
 h2 {
+    text-align: center;
     font-size: 40px;
     margin-bottom: 0;
     color: #fff;

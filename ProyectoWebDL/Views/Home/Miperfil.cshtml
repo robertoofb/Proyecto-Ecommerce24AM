@@ -1,7 +1,6 @@
 ﻿@model IEnumerable<ProyectoWebDL.Models.Entities.Articulo>
 @{
     ViewData["Title"] = "Miperfil";
-    Layout = null;
 }
 
 <link rel="stylesheet" href="~/css/Miperfil.css" asp-append-version="true" />
@@ -9,12 +8,17 @@
 
 <div class="row">
     <div class="au-title">
-        <h1 class="title">Javier Olivera</h1>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1 class="title">Roberto Fierro</h1>
     </div>
     <div class="column">
         <div class="card">
             <div class="imag-card">
-                <img class="fotoperfil" src="~/Images/fierro.jpg" alt="">
+                <img class="fotoperfil" src="/Images/fierro.jpeg" alt="">
                 <img class="lupa" src="~/Images/person-check-fill.svg" alt=""><p>587 Seguidores</p><p>-</p><p>234 Articulos</p>
             </div>
             <div class="contenido-card">
@@ -74,18 +78,18 @@
             </div>
         </div>
     }
-    
+
     <h2 class="subtitles">Algunos colaboradores...</h2>
     <div class="container-colab">
 
         <div class="container">
 
             <div class="avatar-flip">
-                <img src="~/Images/Axel.jpg" height="150" width="150">
+                <img src="/Images/cetina.jpeg" height="150" width="150">
                 <img src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2016/02/CD.gif?fit=480%2C270&quality=50&strip=all&ssl=1" height="150" width="150">
             </div>
             <div class="followdiv">
-                <h2 class="name">Rodolfo Hernandez</h2>
+                <h2 class="name">Roberto Zetina</h2>
                 <button class="follow"><img src="/Images/person-add.svg" alt=""></button>
             </div>
             <h4 class="job">Investigador</h4>
@@ -94,11 +98,11 @@
 
         <div class="container">
             <div class="avatar-flip">
-                <img src="/Images/Christo.jpg" height="150" width="150">
+                <img src="/Images/cristofer.jpeg" height="150" width="150">
                 <img src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2016/02/CD.gif?fit=480%2C270&quality=50&strip=all&ssl=1" height="150" width="150">
             </div>
             <div class="followdiv">
-                <h2 class="name">Rodolfo Hernandez</h2>
+                <h2 class="name">Christopher Ramón</h2>
                 <button class="follow"><img src="/Images/person-add.svg" alt=""></button>
             </div>
 
@@ -108,11 +112,11 @@
 
         <div class="container">
             <div class="avatar-flip">
-                <img src="~/Images/zetina.jpg" height="150" width="150">
+                <img src="/Images/koutinho.jpg" height="150" width="150">
                 <img src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2016/02/CD.gif?fit=480%2C270&quality=50&strip=all&ssl=1" height="150" width="150">
             </div>
             <div class="followdiv">
-                <h2 class="name">Rodolfo Hernandez</h2>
+                <h2 class="name">Axel Coutiño</h2>
                 <button class="follow"><img src="/Images/person-add.svg" alt=""></button>
             </div>
 
@@ -146,3 +150,8 @@
 
 </div>
  
+@section footer1 {
+    <div class="hidden-footer1-content">
+        <!-- Este contenido reemplazará la barra de navegación en esta vista -->
+    </div>
+}

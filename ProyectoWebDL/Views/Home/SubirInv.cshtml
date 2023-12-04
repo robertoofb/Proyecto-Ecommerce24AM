@@ -2,99 +2,23 @@
 
 @{
     ViewData["Title"] = "Miperfil";
-    Layout = null;
 }
 
 <link rel="stylesheet" href="~/css/SubirInv.css" asp-append-version="true" />
 <link rel="stylesheet" href="~/ScireHub.styles.css" asp-append-version="true" />
 
 <div class="contenedor-subir">
+    
     <div class="subirtitle">
+        <br>
         <h3 class="subirtitlep">Subir investigación</h3>
+        <br>
+
 
     </div>
 
-    <h2 class="namearticle">+ Etiquetas </h2>
-    <div class="tags">
-        <div class="tag">
-            <h4 class="txtbtn">Programación</h4>
-        </div>
-        <div class="tag">
-            <h4 class="txtbtn">IA</h4>
-        </div>
-        <div class="tag">
-            <h4 class="txtbtn">HTML</h4>
-        </div>
-        <div class="tag">
-            <h4 class="txtbtn">Angular</h4>
-        </div>
-        <div class="tag">
-            <h4 class="txtbtn">Seguir</h4>
-        </div>
-        <div class="tag">
-            <h4 class="txtbtn">View</h4>
-        </div>
-        <div class="tag">
-            <h4 class="txtbtn">Aws</h4>
-        </div>
-        <div class="tag">
-            <h4 class="txtbtn">Bitcoin</h4>
-        </div>
-        <div class="tag">
-            <h4 class="txtbtn">JavaScript</h4>
-        </div>
-    </div>
-    <h2 class="namearticle">¿Como subirás tu archivo? </h2>
-    <div class="container-ps">
-        <div class="pyp">
-            <img class="imgarchivo" src="/Images/globe.svg" alt="">
-            <div class="textarchivos">
-                <h2 class="titlearchivo">Repositorio publico y privado</h2>
-                <h4 class="subtitlearchivo">
-                    Al seleccionar esta opción estás aprobando que tu artículo se vuelva
-                    público con una copia en privado
-                </h4>
-            </div>
-
-        </div>
-
-        <div class="priv">
-            <img class="imgarchivo" src="/Images/person-fill-lock.svg" alt="">
-            <div class="textarchivos">
-                <h2 class="titlearchivo">Repositorio privado</h2>
-                <h4 class="subtitlearchivo">
-                    Al seleccionar esta opción estás aprobando que tu artículo se vuelva
-                    público con una copia en privado
-                </h4>
-            </div>
-
-        </div>
-        <div class="public">
-            <img class="imgarchivo" src="/Images/person-check-fill.svg" alt="">
-            <div class="textarchivos">
-                <h2 class="titlearchivo">Repositorio publico</h2>
-                <h4 class="subtitlearchivo">
-                    Al seleccionar esta opción estás aprobando que tu artículo se vuelva
-                    público con una copia en privado
-                </h4>
-            </div>
-
-        </div>
-
-        <p>
-            Al hacer uso de nuestros servicios, usted acepta los siguientes términos y condiciones. Lea
-            detenidamente antes de continuar.
-        </p>
-        <div class="terminos">
-            <div class="checkbox-container">
-                <input class="cb" type="checkbox" id="checkButton" required>
-                <label class="lab" for="checkButton"></label>
-                <img class="paloma" src="~/Images/check.svg" alt="">
-            </div>
-            <p class="lee">He leído y acepto las políticas de privacidad.</p>
-        </div>
-
-    </div>
+    
+    
     <form asp-action="SubirInv" method="post" enctype="multipart/form-data">
     
         <h2 class="namearticle">+ Nombre del articulo</h2>
@@ -104,6 +28,39 @@
         <h2 class="namearticle">+ Autor o Autores del articulo</h2>
         <input asp-for="Autor" class="añadir" placeholder="Añadir nombre o nombres de los Autores del artículo" rows="10" required></>
         <div class="separator-line"></div>
+
+        <h2 class="namearticle">+ Etiquetas </h2>
+        <div class="tags">
+            <div class="tag">
+                <h4 class="txtbtn">Programación</h4>
+            </div>
+            <div class="tag">
+                <h4 class="txtbtn">IA</h4>
+            </div>
+            <div class="tag">
+                <h4 class="txtbtn">HTML</h4>
+            </div>
+            <div class="tag">
+                <h4 class="txtbtn">Angular</h4>
+            </div>
+            <div class="tag">
+                <h4 class="txtbtn">Seguir</h4>
+            </div>
+            <div class="tag">
+                <h4 class="txtbtn">View</h4>
+            </div>
+            <div class="tag">
+                <h4 class="txtbtn">Aws</h4>
+            </div>
+            <div class="tag">
+                <h4 class="txtbtn">Bitcoin</h4>
+            </div>
+            <div class="tag">
+                <h4 class="txtbtn">JavaScript</h4>
+            </div>
+        </div>
+        <div class="separator-line"></div>
+
 
         <div class="form-group">
             <h2 class="namearticle">+ Categoría</h2>
@@ -122,6 +79,58 @@
         <input asp-for="Descripcion" class="sinopsis" placeholder="Escribe aquí..." rows="10" required></>
         <div class="separator-line"></div>
 
+        <h2 class="namearticle">¿Como subirás tu archivo? </h2>
+        <div class="container-ps">
+            <div class="pyp">
+                <img class="imgarchivo" src="/Images/globe.svg" alt="">
+                <div class="textarchivos">
+                    <h2 class="titlearchivo">Repositorio publico y privado</h2>
+                    <h4 class="subtitlearchivo">
+                        Al seleccionar esta opción estás aprobando que tu artículo se vuelva
+                        público con una copia en privado
+                    </h4>
+                </div>
+
+            </div>
+
+            <div class="priv">
+                <img class="imgarchivo" src="/Images/person-fill-lock.svg" alt="">
+                <div class="textarchivos">
+                    <h2 class="titlearchivo">Repositorio privado</h2>
+                    <h4 class="subtitlearchivo">
+                        Al seleccionar esta opción estás aprobando que tu artículo se vuelva
+                        público con una copia en privado
+                    </h4>
+                </div>
+
+            </div>
+            <div class="public">
+                <img class="imgarchivo" src="/Images/person-check-fill.svg" alt="">
+                <div class="textarchivos">
+                    <h2 class="titlearchivo">Repositorio publico</h2>
+                    <h4 class="subtitlearchivo">
+                        Al seleccionar esta opción estás aprobando que tu artículo se vuelva
+                        público con una copia en privado
+                    </h4>
+                </div>
+
+            </div>
+
+            <p>
+                Al hacer uso de nuestros servicios, usted acepta los siguientes términos y condiciones. Lea
+                detenidamente antes de continuar.
+            </p>
+            <div class="terminos">
+                <div class="checkbox-container">
+                    <input class="cb" type="checkbox" id="checkButton" required>
+                    <label class="lab" for="checkButton"></label>
+                    <img class="paloma" src="~/Images/check.svg" alt="">
+                </div>
+                <p class="lee">He leído y acepto las políticas de privacidad.</p>
+            </div>
+
+        </div>
+
         <h2 class="namearticle">+ Sube tu archivo </h2>
         <div class="cont-archivo">
 
@@ -134,3 +143,8 @@
     </form>
 
 </div>
+@section footer1 {
+    <div class="hidden-footer1-content">
+        <!-- Este contenido reemplazará la barra de navegación en esta vista -->
+    </div>
+}

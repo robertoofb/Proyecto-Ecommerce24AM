@@ -12,7 +12,7 @@ using ProyectoWebDL.Context;
 namespace ProyectoWebDL.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231204062539_ScireHub")]
+    [Migration("20231204145844_ScireHub")]
     partial class ScireHub
     {
         /// <inheritdoc />
