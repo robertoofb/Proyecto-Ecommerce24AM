@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<ProyectoWebDL.Models.Entities.Articulo>
+@{
     ViewData["Title"] = "Miperfil";
     Layout = null;
 }
@@ -44,49 +45,41 @@
                     <h3 class="subtitleh3">Acerca de mí...</h3>
                 </div>
                 <div class="text">
-                    Las proteínas son macronutrientes esenciales para el crecimiento y el mantenimiento corporal. La calidad de la proteína está determinada por el perfil y proporción de aminoácidos, solubilidad y grado de glicosilación. La complementación proteica mejora la biodisponibilidad de proteínas de baja calidad. En los últimos años, las proteínas funcionales y los péptidos bioactivos están cobrando gran importancia por sus efectos biológicos específicos, como anticancerígenos, antibacterianos y antivirales.
+                    Como investigador, mi trayectoria se ha forjado a través de una pasión inquebrantable por descubrir y comprender los misterios que rodean mi área de especialización. A lo largo de los años, he dedicado mi tiempo y energía a la exploración de desafíos científicos, abordando preguntas que estimulan la curiosidad y despiertan el deseo de conocimiento. Mis esfuerzos se centran en la búsqueda constante de respuestas innovadoras, utilizando métodos rigurosos y tecnologías de vanguardia. Mi compromiso con la excelencia investigativa se refleja en la búsqueda incansable de contribuir al avance de mi campo, con la convicción de que cada experimento y descubrimiento son piezas esenciales en el rompecabezas del conocimiento científico. Como investigador, abrazo la emoción de lo desconocido y me embarco en un viaje continuo hacia el entendimiento más profundo de nuestro mundo.
                 </div>
             </div>
             <div class="img-card">
-                <img src="~/css/fondo-login - Copia.jpg" alt="">
+                <img src=/css/CellsAndDNA_Share.jpg - Copia.jpg" alt="">
             </div>
         </div>
     </div>
 
     <h2 class="subtitles">Articulos fijados...</h2>
-    <div class="column2">
-        <div class="card2">
-            <div class="contenido-card2">
-                <div class="imag-card2">
-                    <img src="~/css/fondo-login - Copia.jpg" alt="">
-                </div>
-                <div class="ttext2">
-                    <h3 class="subtitleh3">Proteínas y péptidos en nutrición enteralsenciales para el crecimiento y el mantenimiento corporal.</h3>
-                </div>
-                <div class="text2">
-                    Las proteínas son macronutrientes esenciales para el crecimiento y el mantenimiento corporal. La calidad de la proteína está determinada por el perfil y proporción de aminoácidos, solubilidad y grado de glicosilación. La complementación proteica mejora la biodisponibilidad de proteínas de baja calidad. En los últimos años, las proteínas funcionales y los péptidos bioactivos están cobrando gran importancia por sus efectos biológicos específicos, como anticancerígenos, antibacterianos y antivirales.
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="column2">
-        <div class="card2">
-            <div class="contenido-card2">
-                <div class="imag-card2">
-                    <img src="~/css/fondo-login - Copia.jpg" alt="">
-                </div>
-                <div class="ttext2">
-                    <h3 class="subtitleh3">Proteínas y péptidos en nutrición enteralsenciales para el crecimiento y el mantenimiento corporal.</h3>
-                </div>
-                <div class="text2">
-                    Las proteínas son macronutrientes esenciales para el crecimiento y el mantenimiento corporal. La calidad de la proteína está determinada por el perfil y proporción de aminoácidos, solubilidad y grado de glicosilación. La complementación proteica mejora la biodisponibilidad de proteínas de baja calidad. En los últimos años, las proteínas funcionales y los péptidos bioactivos están cobrando gran importancia por sus efectos biológicos específicos, como anticancerígenos, antibacterianos y antivirales.
+
+    @foreach (var Item in Model)
+    {
+        <div class="column2">
+            <div class="card2">
+                <div class="contenido-card2">
+                    <div class="imag-card2">
+                        <img src="/@Html.DisplayFor(x => Item.UrlImagenPath)">
+                    </div>
+                    <div class="ttext2">
+                        <h3 class="subtitleh3">@Html.DisplayFor(x => Item.Nombre)</h3>
+                    </div>
+                    <div class="text2">
+                        @Html.DisplayFor(x => Item.Descripcion)
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    }
+    
     <h2 class="subtitles">Algunos colaboradores...</h2>
     <div class="container-colab">
+
         <div class="container">
+
             <div class="avatar-flip">
                 <img src="~/Images/Axel.jpg" height="150" width="150">
                 <img src="https://i0.wp.com/imgs.hipertextual.com/wp-content/uploads/2016/02/CD.gif?fit=480%2C270&quality=50&strip=all&ssl=1" height="150" width="150">
@@ -95,10 +88,10 @@
                 <h2 class="name">Rodolfo Hernandez</h2>
                 <button class="follow"><img src="/Images/person-add.svg" alt=""></button>
             </div>
-
             <h4 class="job">Investigador</h4>
             <p class="desc">Experto en inteligencia artificial aplicada a la salud, el Dr. Hernandez ha desarrollado algoritmos avanzados para el diagnóstico temprano de enfermedades a través de imágenes médicas.</p>
         </div>
+
         <div class="container">
             <div class="avatar-flip">
                 <img src="/Images/Christo.jpg" height="150" width="150">
@@ -112,6 +105,7 @@
             <h4 class="job">Investigador</h4>
             <p class="desc">Experto en inteligencia artificial aplicada a la salud, el Dr. Hernandez ha desarrollado algoritmos avanzados para el diagnóstico temprano de enfermedades a través de imágenes médicas.</p>
         </div>
+
         <div class="container">
             <div class="avatar-flip">
                 <img src="~/Images/zetina.jpg" height="150" width="150">
@@ -125,125 +119,30 @@
             <h4 class="job">Investigador</h4>
             <p class="desc">Experto en inteligencia artificial aplicada a la salud, el Dr. Hernandez ha desarrollado algoritmos avanzados para el diagnóstico temprano de enfermedades a través de imágenes médicas.</p>
         </div>
-    </div>
-    <h2 class="subtitles">Explora otros articulos...</h2>
-    <div class="column3">
-        <div class="card3">
-            <div class="contenido-card3">
-                <div class="ttext">
-                    <h3 class="subtitleh3">Acerca de mí...</h3>
-                </div>
-                <div class="text">
-                    Las proteínas son macronutrientes esenciales para el crecimiento y el mantenimiento corporal. La calidad de la proteína está determinada por el perfil y proporción de aminoácidos, solubilidad y grado de glicosilación. La complementación proteica mejora la biodisponibilidad de proteínas de baja calidad. En los últimos años, las proteínas funcionales y los péptidos bioactivos están cobrando gran importancia por sus efectos biológicos específicos, como anticancerígenos, antibacterianos y antivirales.
-                </div>
-            </div>
-            <div class="img-card">
-                <img src="~/css/fondo-login - Copia.jpg" alt="">
-            </div>
-        </div>
 
     </div>
-    <div class="asd">
+
+    <h2 class="subtitles">Explora otros articulos...</h2>
+
+    @foreach (var Item in Model)
+    {
         <div class="column3">
             <div class="card3">
                 <div class="contenido-card3">
                     <div class="ttext">
-                        <h3 class="subtitleh3">Acerca de mí...</h3>
+                        <h3 class="subtitleh3">@Html.DisplayFor(x => Item.Nombre)</h3>
                     </div>
                     <div class="text">
-                        Las proteínas son macronutrientes esenciales para el crecimiento y el mantenimiento corporal. La calidad de la proteína está determinada por el perfil y proporción de aminoácidos, solubilidad y grado de glicosilación. La complementación proteica mejora la biodisponibilidad de proteínas de baja calidad. En los últimos años, las proteínas funcionales y los péptidos bioactivos están cobrando gran importancia por sus efectos biológicos específicos, como anticancerígenos, antibacterianos y antivirales.
+                        @Html.DisplayFor(x => Item.Descripcion)
                     </div>
                 </div>
                 <div class="img-card">
-                    <img src="~/css/fondo-login - Copia.jpg" alt="">
+                    <img src="/@Html.DisplayFor(x => Item.UrlImagenPath)">
                 </div>
             </div>
-        </div>
-        <div class="asd">
-            <div class="column3">
-                <div class="card3">
-                    <div class="contenido-card3">
-                        <div class="ttext">
-                            <h3 class="subtitleh3">Acerca de mí...</h3>
-                        </div>
-                        <div class="text">
-                            Las proteínas son macronutrientes esenciales para el crecimiento y el mantenimiento corporal. La calidad de la proteína está determinada por el perfil y proporción de aminoácidos, solubilidad y grado de glicosilación. La complementación proteica mejora la biodisponibilidad de proteínas de baja calidad. En los últimos años, las proteínas funcionales y los péptidos bioactivos están cobrando gran importancia por sus efectos biológicos específicos, como anticancerígenos, antibacterianos y antivirales.
-                        </div>
-                    </div>
-                    <div class="img-card">
-                        <img src="~/css/fondo-login - Copia.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="asd">
-                <div class="column3">
-                    <div class="card3">
-                        <div class="contenido-card3">
-                            <div class="ttext">
-                                <h3 class="subtitleh3">Acerca de mí...</h3>
-                            </div>
-                            <div class="text">
-                                Las proteínas son macronutrientes esenciales para el crecimiento y el mantenimiento corporal. La calidad de la proteína está determinada por el perfil y proporción de aminoácidos, solubilidad y grado de glicosilación. La complementación proteica mejora la biodisponibilidad de proteínas de baja calidad. En los últimos años, las proteínas funcionales y los péptidos bioactivos están cobrando gran importancia por sus efectos biológicos específicos, como anticancerígenos, antibacterianos y antivirales.
-                            </div>
-                        </div>
-                        <div class="img-card">
-                            <img src="~/css/fondo-login - Copia.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-                <div class="asd">
-                    <div class="column3">
-                        <div class="card3">
-                            <div class="contenido-card3">
-                                <div class="ttext">
-                                    <h3 class="subtitleh3">Acerca de mí...</h3>
-                                </div>
-                                <div class="text">
-                                    Las proteínas son macronutrientes esenciales para el crecimiento y el mantenimiento corporal. La calidad de la proteína está determinada por el perfil y proporción de aminoácidos, solubilidad y grado de glicosilación. La complementación proteica mejora la biodisponibilidad de proteínas de baja calidad. En los últimos años, las proteínas funcionales y los péptidos bioactivos están cobrando gran importancia por sus efectos biológicos específicos, como anticancerígenos, antibacterianos y antivirales.
-                                </div>
-                            </div>
-                            <div class="img-card">
-                                <img src="~/css/fondo-login - Copia.jpg" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <di class="asd">
-                        <div class="column3">
-                            <div class="card3">
-                                <div class="contenido-card3">
-                                    <div class="ttext">
-                                        <h3 class="subtitleh3">Acerca de mí...</h3>
-                                    </div>
-                                    <div class="text">
-                                        Las proteínas son macronutrientes esenciales para el crecimiento y el mantenimiento corporal. La calidad de la proteína está determinada por el perfil y proporción de aminoácidos, solubilidad y grado de glicosilación. La complementación proteica mejora la biodisponibilidad de proteínas de baja calidad. En los últimos años, las proteínas funcionales y los péptidos bioactivos están cobrando gran importancia por sus efectos biológicos específicos, como anticancerígenos, antibacterianos y antivirales.
-                                    </div>
-                                </div>
-                                <div class="img-card">
-                                    <img src="~/css/fondo-login - Copia.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="asd">
-                            <div class="column3">
-                                <div class="card3">
-                                    <div class="contenido-card3">
-                                        <div class="ttext">
-                                            <h3 class="subtitleh3">Acerca de mí...</h3>
-                                        </div>
-                                        <div class="text">
-                                            Las proteínas son macronutrientes esenciales para el crecimiento y el mantenimiento corporal. La calidad de la proteína está determinada por el perfil y proporción de aminoácidos, solubilidad y grado de glicosilación. La complementación proteica mejora la biodisponibilidad de proteínas de baja calidad. En los últimos años, las proteínas funcionales y los péptidos bioactivos están cobrando gran importancia por sus efectos biológicos específicos, como anticancerígenos, antibacterianos y antivirales.
-                                        </div>
-                                    </div>
-                                    <div class="img-card">
-                                        <img src="~/css/fondo-login - Copia.jpg" alt="">
-                                    </div>
-                                </div>
-                            </div>
 
-                        </div>
-                </div>
-            </div>
         </div>
-    </div>
+    }
+
 </div>
  

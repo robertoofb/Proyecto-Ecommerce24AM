@@ -8,6 +8,8 @@ namespace ProyectoWebDL.Services.IServices
         public Task<Articulo> GetByIdArticulo(int id);
 
         public Task<Articulo> CrearArticulo(Articulo i);
+        public Task<Articulo> PublicarArticulo(Articulo i);
+
         public Task<Articulo> EditarArticulo(Articulo i);
         public bool EliminarArticulo(int id);
     }

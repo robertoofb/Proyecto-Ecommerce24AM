@@ -41,24 +41,48 @@ namespace ProyectoWebDL.Controllers
             return View(response);
         }
 
-        public IActionResult Articulos()
+        public async Task<IActionResult> Articulos()
         {
-            return View();
+            var response = await _articuloServices.GetArticulos();
+            return View(response);
         }
 
-        public IActionResult Miperfil()
+        public async Task<IActionResult> Miperfil()
         {
-            return View();
-        }
-
-        public IActionResult SubirInv()
-        {
-            return View();
+            var response = await _articuloServices.GetArticulos();
+            return View(response);
         }
 
         public IActionResult ElegirArt()
         {
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult SubirInv()
+        {
+            ViewBag.Categorias = _context.Categorias.Select(p => new SelectListItem()
+            {
+                Text = p.Nombre,
+                Value = p.PkCategoria.ToString()
+            });
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult SubirInv([FromForm] Articulo request)
+        {
+            try
+            {
+                var response = _articuloServices.PublicarArticulo(request);
+                //Esta funcion return sirve para volver al index despues de la accion
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception ex)
+            {
+
+                throw new Exception("Error" + ex.Message);
+            }
         }
 
         [HttpGet]

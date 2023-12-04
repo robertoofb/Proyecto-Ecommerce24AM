@@ -81,6 +81,38 @@ namespace ProyectoWebDL.Services.Service
             }
         }
 
+        public async Task<Articulo> PublicarArticulo(Articulo i)
+        {
+            try
+            {
+                var urlImagen = i.Img.FileName;
+                i.UrlImagenPath = @"Img/articulos/" + urlImagen;
+                var urlPdf = i.Pdf.FileName;
+                i.UrlPdfPath = @"Pdf/articulos/" + urlPdf;
+
+                Articulo request = new Articulo()
+                {
+                    Nombre = i.Nombre,
+                    Descripcion = i.Descripcion,
+                    Autor = i.Autor,
+                    FkCategoria = i.FkCategoria,
+                    UrlImagenPath = i.UrlImagenPath,
+                    UrlPdfPath = i.UrlPdfPath,
+                };
+                SubirImg(urlImagen);
+                SubirImg(urlPdf);
+
+                var result = await _context.Articulos.AddAsync(request);
+                _context.SaveChanges();
+
+                return request;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Surgio un error" + ex.Message);
+            }
+        }
+
         public async Task<Articulo> EditarArticulo(Articulo i)
         {
             try

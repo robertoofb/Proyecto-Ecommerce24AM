@@ -15,30 +15,54 @@
     </div>
 
     <div class="container icons-container">
-        <div class="icono-carrera">
-            <img src="~/css/biotecnología.png" alt="Icono 1 de carrera">
-            <p class="nombre-carrera">Biotecnología</p>
-        </div>
-        <div class="icono-carrera">
-            <img src="~/css/biomedica.png" alt="Icono 2 de carrera">
-            <p class="nombre-carrera">Biomedica</p>
-        </div>
-        <div class="icono-carrera">
-            <img src="~/css/Terapia fisica.png" alt="Icono 2 de carrera">
-            <p class="nombre-carrera">Terapia fisica</p>
-        </div>
-        <div class="icono-carrera">
-            <img src="~/css/finanzas.png" alt="Icono 2 de carrera">
-            <p class="nombre-carrera">Administración</p>
-        </div>
-        <div class="icono-carrera">
-            <img src="~/css/SOFTWARE.png" alt="Icono 2 de carrera">
-            <p class="nombre-carrera">Software</p>
-        </div>
-        <div class="icono-carrera">
-            <img src="~/css/finanzas1.png" alt="Icono 2 de carrera">
-            <p class="nombre-carrera">Finanzas</p>
-        </div>
+
+        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Articulos">
+            <div class="icono-carrera">
+                <img src="~/css/biotecnología.png" alt="Icono 1 de carrera">
+                <p class="nombre-carrera">Biotecnología</p>
+            </div>
+        </a>
+
+        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Articulos">
+            <div class="icono-carrera">
+                <img src="~/css/biomedica.png" alt="Icono 2 de carrera">
+                <p class="nombre-carrera">Biomedica</p>
+            </div>
+        </a>
+
+        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Articulos">
+            <div class="icono-carrera">
+                <img src="~/css/Terapia fisica.png" alt="Icono 2 de carrera">
+                <p class="nombre-carrera">Terapia fisica</p>
+            </div>
+        </a>
+
+        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Articulos">
+            <div class="icono-carrera">
+                <img src="~/css/finanzas.png" alt="Icono 2 de carrera">
+                <p class="nombre-carrera">Administración</p>
+            </div>
+        </a>
+
+        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Articulos">
+            <div class="icono-carrera">
+                <img src="~/css/SOFTWARE.png" alt="Icono 2 de carrera">
+                <p class="nombre-carrera">Software</p>
+            </div>
+        </a>
+
+        <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Articulos">
+            <div class="icono-carrera">
+                <img src="~/css/finanzas1.png" alt="Icono 2 de carrera">
+                <p class="nombre-carrera">Finanzas</p>
+            </div>
+        </a>
+        
+        
+        
+        
+        
+        
     </div>
 
 
@@ -47,15 +71,17 @@
 
         @foreach (var Item in Model)
         {
-            <div class="card">
-                <div class="image">
-                    <img src="/@Html.DisplayFor(x => Item.UrlImagenPath)" alt="Placeholder Image">
-                    <div class="title">@Html.DisplayFor(x => Item.Nombre)</div>
+            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Articulos">
+                <div class="card">
+                    <div class="image">
+                        <img src="/@Html.DisplayFor(x => Item.UrlImagenPath)" alt="Placeholder Image">
+                        <div class="title">@Html.DisplayFor(x => Item.Nombre)</div>
+                    </div>
+                    <div class="text">
+                        <p>@Html.DisplayFor(x => Item.Descripcion )</p>
+                    </div>
                 </div>
-                <div class="text">
-                    <p>@Html.DisplayFor(x => Item.Descripcion )</p>
-                </div>
-            </div>
+            </a>
         }
 
     </section>
