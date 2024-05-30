@@ -20,26 +20,20 @@
             <div class="imag-card">
                 <img class="fotoperfil" src="/Images/fierro.jpeg" alt="">
                 <img class="lupa" src="~/Images/person-check-fill.svg" alt=""><p>587 Seguidores</p><p>-</p><p>234 Articulos</p>
-            </div>
-            <div class="contenido-card">
-                <h2 class="subtitle">Investigador de proteínas funcionales y péptidos bioactivos</h2>
-                <div class="sonlas3am">
-                    <div class="dtags">
-                        <h4 class="tags">Diseñador</h4><h4 class="tags"> - </h4><h4 class="tags">Biotecnologo</h4>
-                    </div>
-                    <div class="dtags">
-                        <h4 class="tags">UPQROO</h4><h4 class="tags"> - </h4><h4 class="tags">Biología Molecular</h4>
+                <div class="contenido-card">
+                    <h2 class="subtitleinv">..</h2>
+
+                    <div class="redes">
+                        <img src="~/css/whatsapp.svg" alt="">
+                        <img src="~/css/facebook (1).svg" alt="">
+                        <img src="~/css/twitter (1).svg" alt="">
+                        <div class="btn"> <img class="lupa" src="~/Images/person-add.svg" alt=""> <h4 class="txtbtn">Seguir</h4></div>
+                        <div class="btn2"> <img class="lupa" src="~/Images/chat-dots-fill.svg" alt=""> <h4 class="txtbtn">Mensaje</h4></div>
+                        <div class="btn3"> <img class="lupa" src="~/Images/search.svg" alt=""> <h4 class="txtbtn">Buscar</h4></div>
                     </div>
                 </div>
-                <div class="redes">
-                    <img src="~/css/whatsapp.svg" alt="">
-                    <img src="~/css/facebook (1).svg" alt="">
-                    <img src="~/css/twitter (1).svg" alt="">
-                    <div class="btn"> <img class="lupa" src="~/Images/person-add.svg" alt=""> <h4 class="txtbtn">Seguir</h4></div>
-                    <div class="btn2"> <img class="lupa" src="~/Images/chat-dots-fill.svg" alt=""> <h4 class="txtbtn">Mensaje</h4></div>
-                    <div class="btn3"> <img class="lupa" src="~/Images/search.svg" alt=""> <h4 class="txtbtn">Buscar</h4></div>
-                </div>
             </div>
+
         </div>
     </div>
     <div class="columncontent">
@@ -60,19 +54,21 @@
 
     <h2 class="subtitles">Articulos fijados...</h2>
 
-    @foreach (var Item in Model)
+    @if (Model.Any())
     {
+        var primerArticulo = Model.FirstOrDefault(); // o Model.FirstOrDefault() para evitar una excepción si la lista está vacía
+
         <div class="column2">
             <div class="card2">
                 <div class="contenido-card2">
                     <div class="imag-card2">
-                        <img src="/@Html.DisplayFor(x => Item.UrlImagenPath)">
+                        <img src="/@Html.DisplayFor(x => primerArticulo.UrlImagenPath)">
                     </div>
                     <div class="ttext2">
-                        <h3 class="subtitleh3">@Html.DisplayFor(x => Item.Nombre)</h3>
+                        <h3 class="subtitleh3">@Html.DisplayFor(x => primerArticulo.Nombre)</h3>
                     </div>
                     <div class="text2">
-                        @Html.DisplayFor(x => Item.Descripcion)
+                        @Html.DisplayFor(x => primerArticulo.Descripcion)
                     </div>
                 </div>
             </div>

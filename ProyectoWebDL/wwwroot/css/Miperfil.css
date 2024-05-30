@@ -146,33 +146,29 @@ body {
 
 
 .column {
-    overflow: hidden;
-    float: left;
     width: 100%;
     padding: 0 10px;
     margin-bottom: 32px;
     position: relative;
-    box-sizing: border-box;
+    display: flex;
 }
 
 .contenido-card {
-    display: flex;
-    flex-direction: column;
     position: relative;
     width: 100%;
+    margin-left:400px;
 }
 
 .imag-card {
-    width: 27%;
+    width: 25%;
     height: 100%;
-    position: flex;
-    flex-direction: row;
+    position: relative;
     margin-top: 16px; /* Asegura que no haya márgenes */
 }
 
 .fotoperfil {
-    width: 250px;
-    height: 250px;
+    width: 270px;
+    height: 270px;
     margin: 8px;
     border-radius: 50%;
 }
@@ -268,6 +264,15 @@ p {
 
 .subtitles {
     text-align: start;
+    color: white;
+    margin-bottom: 24px;
+    margin-left: 16px;
+    font-size: 32px;
+}
+
+.subtitleinv {
+    text-align: start;
+    width: 60%;
     color: white;
     margin-bottom: 24px;
     margin-left: 16px;

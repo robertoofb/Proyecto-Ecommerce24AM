@@ -2,6 +2,7 @@
     box-sizing: border-box;
 }
 
+
 :root {
     --azulbg: #0C2430;
     --azulnavbar: #285568;
@@ -27,14 +28,13 @@ body {
 
 .card {
     height: 300px;
+    width: 100%;
     border-radius: 3%;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* this adds the "card" effect */
-    text-align: center;
     background-color: #1C323D;
 }
 
 .title {
-    text-align: start;
     color: white;
     font-size: 40px;
 }
@@ -50,29 +50,26 @@ body {
 
 .column {
     overflow: hidden;
-    float: left;
+    display: flex;
     width: 100%;
     padding: 0 10px;
     margin-bottom: 32px;
-    position: relative;
     box-sizing: border-box;
 }
 
 .contenido-card {
-    display: flex;
-    flex-wrap: wrap;
-    width: 66%;
-    float: left;
-    padding: 10px; /* Ajusta según sea necesario */
-    overflow: hidden;
+    width: 65%;
+    margin-left: 400px;
+    flex-direction:column;
+    padding: 20px; /* Ajusta según sea necesario */
 }
 
 .ttext {
+    width: 800px;
     font-size: 24px;
-    text-align: justify;
     word-wrap: break-word;
+    text-align: justify;
     width: 100%;
-    max-width: 100%; /* O ajusta según sea necesario */
     margin-bottom: 32px;
     margin-left: 16px;
     margin-right: 16px;
@@ -91,10 +88,9 @@ body {
 }
 
 .imag-card {
-    width: 34%;
-    height: 300px;
-    float: right;
-    position: relative;
+    width: 30%;
+    height: 100%;
+    position: absolute;
     margin: 0; /* Asegura que no haya márgenes */
     padding: 0;
 }
@@ -182,8 +178,8 @@ body {
 .ttext2 {
     position: absolute;
     font-size: 16px;
-    justify-content: center; 
-    width: 725px; /* Resta el doble del margen para asegurarte de que el ancho sea correcto */
+    justify-content: start; 
+    width: 650px; /* Resta el doble del margen para asegurarte de que el ancho sea correcto */
     height: 500px;
     max-width: 50%;
     color: white;
